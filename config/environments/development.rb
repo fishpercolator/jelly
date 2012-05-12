@@ -34,4 +34,7 @@ Jelly::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # Make sure there's a default URL for emails
+  config.action_mailer.default_url_options = { :host => 'devegg:3000' }
 end
