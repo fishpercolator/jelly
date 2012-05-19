@@ -1,0 +1,16 @@
+= form_for @report, :html => { :class => 'form-horizontal' } do |f|
+  .control-group
+    = f.label :user_id, :class => 'control-label'
+    .controls
+      = f.number_field :user_id, :class => 'number_field'
+  .control-group
+    = f.label :jelly, :class => 'control-label'
+    .controls
+      = f.number_field :jelly, :class => 'number_field'
+  .control-group
+    = f.label :help_needed, :class => 'control-label'
+    .controls
+      = f.text_area :help_needed, :class => 'text_area'
+  .form-actions
+    = f.submit nil, :class => 'btn btn-primary'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), reports_path, :class => 'btn'

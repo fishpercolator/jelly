@@ -11,7 +11,35 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120512100643) do
+ActiveRecord::Schema.define(:version => 20120512155208) do
+
+  create_table "achievements", :force => true do |t|
+    t.integer  "report_id"
+    t.string   "text"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "achievements", ["report_id"], :name => "index_achievements_on_report_id"
+
+  create_table "reports", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "jelly"
+    t.text     "help_needed"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "reports", ["user_id"], :name => "index_reports_on_user_id"
+
+  create_table "tasks", :force => true do |t|
+    t.integer  "report_id"
+    t.string   "text"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "tasks", ["report_id"], :name => "index_tasks_on_report_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
