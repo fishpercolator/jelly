@@ -5,13 +5,14 @@
   %body
     .navbar.navbar-fixed-top
       .navbar-inner
-        .container-fluid
+        .container
           = render 'layouts/navbar'
-    .container-fluid
-      .row-fluid
+    .container
+      .row
         .span12
           = render 'layouts/alerts'
           = yield
       %footer
         %p &copy; RichD 2012
     = javascript_include_tag "application"
+
