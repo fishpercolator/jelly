@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120512155208) do
+ActiveRecord::Schema.define(:version => 20120523200122) do
 
   create_table "achievements", :force => true do |t|
     t.integer  "report_id"
@@ -26,8 +26,11 @@ ActiveRecord::Schema.define(:version => 20120512155208) do
     t.integer  "user_id"
     t.integer  "jelly"
     t.text     "help_needed"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.date     "today"
+    t.date     "previous_day"
+    t.string   "excited"
   end
 
   add_index "reports", ["user_id"], :name => "index_reports_on_user_id"
@@ -54,6 +57,7 @@ ActiveRecord::Schema.define(:version => 20120512155208) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.string   "name"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

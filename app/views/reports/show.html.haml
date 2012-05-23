@@ -1,18 +1,26 @@
 - model_class = @report.class
-%h1=t '.title', :default => model_class.model_name.human
 
-%p
-  %strong= model_class.human_attribute_name(:user_id) + ':'
-  %br
-  = @report.user_id
-%p
-  %strong= model_class.human_attribute_name(:jelly) + ':'
-  %br
-  = @report.jelly
-%p
-  %strong= model_class.human_attribute_name(:help_needed) + ':'
-  %br
-  = @report.help_needed
+%h1
+  = @report.user.name
+  %small= @report.today
+
+.row
+  .span6
+    = render :partial => 'jelly', :object => @report.jelly
+  .span6
+    %h2 I am most excited about:
+    %p= @report.excited
+    %h2= "On #{@report.previous_day.strftime('%A')} I achieved:"
+    %ol
+      - @report.achievements.each do |achievement|
+        %li= achievement.text
+    %h2= "Today I plan to achieve:"
+    %ol
+      - @report.tasks.each do |task|
+        %li= task.text
+    %h2 Who can help me?
+    %p= @report.help_needed
+    
 
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), reports_path, :class => 'btn'

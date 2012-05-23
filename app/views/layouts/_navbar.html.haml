@@ -11,7 +11,7 @@
   %ul.nav.pull-right
     %li.dropdown
       %a.dropdown-toggle{:href => '#', 'data-toggle' => 'dropdown'}
-        = user_signed_in? ? current_user.email : 'Not signed in'
+        = user_signed_in? ? current_user.name : 'Not signed in'
         %b.caret
       %ul.dropdown-menu
         - if user_signed_in?
