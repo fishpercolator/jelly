@@ -1,31 +1,11 @@
 = form_for @report, :html => { :class => 'form-horizontal' } do |f|
   .row
     .span6
+      = f.hidden_field :jelly
       =render :partial => 'jelly', :object => @report.jelly
       %map{:name => "jelly-map"}
-        %area{:coords => "15,3,103,133", :href => "1", :shape => "rect"}/
-        %area{:coords => "135,45,197,163", :href => "2", :shape => "rect"}/
-        %area{:coords => "212,14,329,88", :href => "3", :shape => "rect"}/
-        %area{:coords => "349,0,403,36", :href => "4", :shape => "rect"}/
-        %area{:coords => "516,0,576,95", :href => "5", :shape => "rect"}/
-        %area{:coords => "249,174,277,213", :href => "6", :shape => "rect"}/
-        %area{:coords => "401,118,452,246", :href => "7", :shape => "rect"}/
-        %area{:coords => "510,160,577,295", :href => "8", :shape => "rect"}/
-        %area{:coords => "42,201,92,298", :href => "9", :shape => "rect"}/
-        %area{:coords => "169,255,219,358", :href => "10", :shape => "rect"}/
-        %area{:coords => "217,255,263,358", :href => "11", :shape => "rect"}/
-        %area{:coords => "311,288,393,410", :href => "12", :shape => "rect"}/
-        %area{:coords => "76,451,130,573", :href => "13", :shape => "rect"}/
-        %area{:coords => "130,449,171,583", :href => "14", :shape => "rect"}/
-        %area{:coords => "201,416,277,528", :href => "15", :shape => "rect"}/
-        %area{:coords => "525,405,601,560", :href => "16", :shape => "rect"}/
-        %area{:coords => "343,495,414,633", :href => "17", :shape => "rect"}/
-        %area{:coords => "43,713,139,812", :href => "18", :shape => "rect"}/
-        %area{:coords => "144,640,248,758", :href => "19", :shape => "rect"}/
-        %area{:coords => "266,656,322,780", :href => "20", :shape => "rect"}/
-        %area{:coords => "321,708,354,832", :href => "21", :shape => "rect"}/
-        %area{:coords => "427,673,499,792", :href => "22", :shape => "rect"}/
-        %area{:coords => "406,809,533,857", :href => "23", :shape => "rect"}/
+        - jelly_coords.each_with_index do |c,i|
+          %area{:coords => c, :id => "jelly-#{i+1}", :shape => "rect"}
     .span6
       .control-group
         = f.label :user_id, :class => 'control-label'
