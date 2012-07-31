@@ -10,9 +10,11 @@
             %area{:coords => c, :id => "jelly-#{i+1}", :shape => "rect"}
     .span6
       = f.inputs do
-        = f.input :excited
-        = f.input :previous_day, :as => :ui_date_picker
         = f.input :today, :as => :ui_date_picker
+        = f.input :previous_day, :as => :ui_date_picker
+        = f.input :excited
+        = f.inputs :text, :name => 'Achievement #%i', :for => :achievements
+        = f.inputs :text, :name => 'Task #%i', :for => :tasks
         = f.input :help_needed
   .form-actions
     = f.actions :submit, :cancel
