@@ -1,4 +1,10 @@
 = form_for @report, :html => { :class => 'form-horizontal' } do |f|
+  - if @report.errors.any?
+    .alert.alert-error
+      %strong There were errors:
+      %ul
+        - @report.errors.full_messages.each do |msg|
+          %li= msg
   .row
     .span6
       = f.hidden_field :jelly
@@ -8,17 +14,13 @@
           %area{:coords => c, :id => "jelly-#{i+1}", :shape => "rect"}
     .span6
       .control-group
-        = f.label :user_id, :class => 'control-label'
+        = f.label :excited, :class => 'control-label'
         .controls
-          = f.number_field :user_id, :class => 'number_field'
-      .control-group
-        = f.label :jelly, :class => 'control-label'
-        .controls
-          = f.number_field :jelly, :class => 'number_field'
+          = f.text_field :excited
       .control-group
         = f.label :help_needed, :class => 'control-label'
         .controls
-          = f.text_area :help_needed, :class => 'text_area'
+          = f.text_area :help_needed, :rows => 4
   .form-actions
     = f.submit nil, :class => 'btn btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), reports_path, :class => 'btn'

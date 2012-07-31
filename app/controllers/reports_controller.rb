@@ -44,6 +44,7 @@ class ReportsController < ApplicationController
   # POST /reports.json
   def create
     @report = Report.new(params[:report])
+    @report.user ||= current_user
 
     respond_to do |format|
       if @report.save
@@ -60,6 +61,7 @@ class ReportsController < ApplicationController
   # PUT /reports/1.json
   def update
     @report = Report.find(params[:id])
+    @report.user ||= current_user
 
     respond_to do |format|
       if @report.update_attributes(params[:report])

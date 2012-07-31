@@ -11,7 +11,7 @@ class Report < ActiveRecord::Base
   has_many :tasks
   accepts_nested_attributes_for :tasks, :allow_destroy => true
   
-  validates_presence_of :user, :jelly, :today, :previous_day
+  validates_presence_of :user, :excited, :jelly, :today, :previous_day
   
   # Set dates on object creation
   after_initialize do

@@ -2,4 +2,10 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      report:
+        jelly: "Jelly baby"
+        excited: "I am most excited about"
+        help_needed: "Who can help me?"
+      
