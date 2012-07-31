@@ -1,4 +1,5 @@
 - model_class = @report.class
+- prev = @report.previous_day == @report.today - 1 ? "Yesterday" : "On #{@report.previous_day.strftime('%A')}"
 
 %h1
   = @report.user.name
@@ -10,7 +11,7 @@
   .span6
     %h2 I am most excited about:
     %p= @report.excited
-    %h2= "On #{@report.previous_day.strftime('%A')} I achieved:"
+    %h2= "#{prev} I achieved:"
     %ol
       - @report.achievements.each do |achievement|
         %li= achievement.text
