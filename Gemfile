@@ -46,3 +46,7 @@ gem 'twitter-bootstrap-rails'
 gem 'devise'
 gem 'cancan'
 gem 'rolify'
+gem 'formtastic'
+gem 'formtastic-plus-bootstrap'
+gem 'ui_datepicker-rails3'
+

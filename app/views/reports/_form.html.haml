@@ -1,26 +1,19 @@
-= form_for @report, :html => { :class => 'form-horizontal' } do |f|
-  - if @report.errors.any?
-    .alert.alert-error
-      %strong There were errors:
-      %ul
-        - @report.errors.full_messages.each do |msg|
-          %li= msg
+= semantic_form_for @report do |f|
+  = f.semantic_errors
   .row
     .span6
-      = f.hidden_field :jelly
-      =render :partial => 'jelly', :object => @report.jelly
-      %map{:name => "jelly-map"}
-        - jelly_coords.each_with_index do |c,i|
-          %area{:coords => c, :id => "jelly-#{i+1}", :shape => "rect"}
+      = f.inputs do
+        = f.input :jelly, :as => :hidden
+        =render :partial => 'jelly', :object => @report.jelly
+        %map{:name => "jelly-map"}
+          - jelly_coords.each_with_index do |c,i|
+            %area{:coords => c, :id => "jelly-#{i+1}", :shape => "rect"}
     .span6
-      .control-group
-        = f.label :excited, :class => 'control-label'
-        .controls
-          = f.text_field :excited
-      .control-group
-        = f.label :help_needed, :class => 'control-label'
-        .controls
-          = f.text_area :help_needed, :rows => 4
+      = f.inputs do
+        = f.input :excited
+        = f.input :previous_day, :as => :ui_date_picker
+        = f.input :today, :as => :ui_date_picker
+        = f.input :help_needed
   .form-actions
-    = f.submit nil, :class => 'btn btn-primary'
-    = link_to t('.cancel', :default => t("helpers.links.cancel")), reports_path, :class => 'btn'
+    = f.actions :submit, :cancel
+
