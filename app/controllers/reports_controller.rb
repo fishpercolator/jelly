@@ -5,12 +5,22 @@ class ReportsController < ApplicationController
   # GET /reports
   # GET /reports.json
   def index
-    @reports = Report.all
+    if params[:date]
+      @date = Date.parse(params[:date])
+      @reports = Report.where(:today => @date).order(:created_at)
+    else
+      redirect_to :action => 'by_day' and return
+    end
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @reports }
     end
+  end
+  
+  # GET /reports/by_day
+  def by_day
+    @days = Report.day_counts
   end
 
   # GET /reports/1

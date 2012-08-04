@@ -1,5 +1,6 @@
 Jelly::Application.routes.draw do
 
+  match 'reports/by_day' => 'reports#by_day' 
   resources :reports
 
   devise_for :users

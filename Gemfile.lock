@@ -144,6 +144,7 @@ GEM
     ui_datepicker-rails3 (1.1.0)
     warden (1.1.1)
       rack (>= 1.0)
+    will_paginate (3.0.3)
 
 PLATFORMS
   ruby
@@ -165,3 +166,4 @@ DEPENDENCIES
   twitter-bootstrap-rails
   uglifier (>= 1.0.3)
   ui_datepicker-rails3
+  will_paginate

@@ -1,24 +1,9 @@
-- model_class = Report.new.class
-%h1=t '.title', :default => model_class.model_name.human.pluralize
-%table.table.table-striped
-  %thead
-    %tr
-      %th= model_class.human_attribute_name(:id)
-      %th= model_class.human_attribute_name(:user_id)
-      %th= model_class.human_attribute_name(:jelly)
-      %th= model_class.human_attribute_name(:help_needed)
-      %th= model_class.human_attribute_name(:created_at)
-      %th=t '.actions', :default => t("helpers.actions")
-  %tbody
-    - @reports.each do |report|
-      %tr
-        %td= link_to report.id, report_path(report)
-        %td= report.user_id
-        %td= report.jelly
-        %td= report.help_needed
-        %td=l report.created_at
-        %td
-          = link_to t('.edit', :default => t("helpers.links.edit")), edit_report_path(report), :class => 'btn btn-mini'
-          = link_to t('.destroy', :default => t("helpers.links.destroy")), report_path(report), :method => :delete, :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')), :class => 'btn btn-mini btn-danger'
+= content_for :title do
+  Reports
 
-= link_to t('.new', :default => t("helpers.links.new")), new_report_path, :class => 'btn btn-primary'
+%h1= "Reports for #@date"
+
+%ul
+  - @reports.each do |report|
+    %li= link_to report.user.name, report_path(report)
+

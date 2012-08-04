@@ -1,0 +1,10 @@
+= content_for :title do
+  Reports
+
+%h1 Reports
+
+%ul
+  - @days.each do |d|
+    %li
+      = link_to d.today, reports_path(:date => d.today.to_s(:db))
+      = "(#{d.c})"

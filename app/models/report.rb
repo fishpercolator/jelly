@@ -14,6 +14,11 @@ class Report < ActiveRecord::Base
   
   validates_presence_of :user, :excited, :jelly, :today, :previous_day
   
+  # Get a count of reports for each day, ordered by days in reverse
+  def self.day_counts
+    self.select('today, count(*) as c').group(:today).order('today desc')
+  end
+  
   # Set dates on object creation
   after_initialize do
   	if new_record?
@@ -36,6 +41,5 @@ class Report < ActiveRecord::Base
   	j[:tasks] = self.tasks
   	j
   end
-
     		
 end
