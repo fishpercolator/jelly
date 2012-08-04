@@ -5,9 +5,11 @@
 = link_to('Jelly', root_url, {:class => 'brand'})
 .container-fluid.nav-collapse
   %ul.nav
-    %li= link_to "Link1", "/path1"
-    %li= link_to "Link2", "/path2"
-    %li= link_to "Link3", "/path3"
+    %li= link_to "Team reports", reports_path
+    %li
+      = link_to reports_path, :method => :post do
+        Add report
+        %i.icon-plus-sign
   %ul.nav.pull-right
     %li.dropdown
       %a.dropdown-toggle{:href => '#', 'data-toggle' => 'dropdown'}
