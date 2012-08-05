@@ -13,6 +13,7 @@ class Report < ActiveRecord::Base
   accepts_nested_attributes_for :tasks, :allow_destroy => true
   
   validates_presence_of :user, :excited, :jelly, :today, :previous_day
+  validates_uniqueness_of :today, :scope => [:user_id]
   
   # Get a count of reports for each day, ordered by days in reverse
   def self.day_counts
