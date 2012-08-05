@@ -7,20 +7,22 @@
     .alert.alert-error= f.semantic_errors :jelly
   .row
     .span6
-      = f.inputs do
+      = f.inputs :name => 'Jelly baby' do
         = f.input :jelly, :as => :hidden
         = render 'jelly', :jelly => @report.jelly, :css => (@report.errors[:jelly].any? ? 'jelly jelly-error':'jelly')
         %map{:name => "jelly-map"}
           - jelly_coords.each_with_index do |c,i|
             %area{:coords => c, :id => "jelly-#{i+1}", :shape => "rect"}
     .span6
-      = f.inputs do
+      = f.inputs :name => 'Report' do
         = f.input :today, :as => :ui_date_picker
         = f.input :previous_day, :as => :ui_date_picker
         = f.input :excited
-        = f.inputs :text, :name => 'Achievement #%i', :for => :achievements
-        = f.inputs :text, :name => 'Task #%i', :for => :tasks
-        = f.input :help_needed
+        = f.inputs :for => :achievements do |achievement,i|
+          = achievement.input :text, :label => "Achievement #{i}"
+        = f.inputs :for => :tasks do |task,i|
+          = task.input :text, :label => "Task #{i}"
+        = f.input :help_needed, :input_html => {:rows => 3}
   .form-actions
     = f.actions :submit, :cancel
 
