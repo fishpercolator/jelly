@@ -8,11 +8,11 @@
         .container
           = render 'layouts/navbar'
     .container
-      .row
-        .span12
-          = render 'layouts/alerts'
-          = yield
+      = render 'layouts/alerts'
+      = yield
       %footer
-        %p &copy; RichD 2012
+        %p
+          &copy; 2012 Rich Daley
+          = link_to "[github]", "https://github.com/pedantic-git/jelly"
     = javascript_include_tag "application"
 

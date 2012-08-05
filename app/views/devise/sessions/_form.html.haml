@@ -1,0 +1,19 @@
+- css ||= 'well form-horizontal'
+= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => css}) do |f|
+  .control-group
+    = f.label :email, :class => 'control-label'
+    .controls
+      = f.email_field :email
+  .control-group
+    = f.label :password, :class => 'control-label'
+    .controls
+      = f.password_field :password
+  - if devise_mapping.rememberable?
+    .control-group
+      = f.label :remember_me, :class => 'control-label'
+      .controls
+        = f.check_box :remember_me
+  .control-group
+    .controls
+      = f.submit "Sign in"
+

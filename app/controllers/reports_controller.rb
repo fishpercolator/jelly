@@ -1,6 +1,6 @@
 class ReportsController < ApplicationController
 
-	before_filter :authenticate_user!
+  before_filter :authenticate_user!
 
   # GET /reports
   # GET /reports.json

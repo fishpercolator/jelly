@@ -1,3 +1,21 @@
-.hero-unit
-  %h1 It works!
-  %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus odio sit amet sapien iaculis vel volutpat justo bibendum.
+.row
+  .span12
+    .hero-unit
+      %h1
+        Jelly
+        %small Let's get daily meetings down to minutes.
+.row
+  - if current_user
+    .span6
+      .well
+        %h3= link_to "Write today's report", new_report_path
+    .span6
+      .well
+        %h3= link_to "Show today's meeting slides", reports_path(:date => Date.today.to_s(:db))
+  - else
+    .span12
+      .well
+        %h3 Sign up or sign in to begin
+        = render "devise/sessions/form", :css => 'form-horizontal'
+        = render "devise/links"
+
