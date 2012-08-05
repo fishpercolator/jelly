@@ -5,15 +5,22 @@
 = link_to('Jelly', root_url, {:class => 'brand'})
 .container-fluid.nav-collapse
   %ul.nav
-    %li= link_to "Team reports", reports_path
+    %li
+      = link_to reports_path do
+        %i.icon-eye-open
+        Team reports
     %li
       = link_to new_report_path do
+        %i.icon-file
         Add report
-        %i.icon-plus-sign
   %ul.nav.pull-right
     %li.dropdown
       %a.dropdown-toggle{:href => '#', 'data-toggle' => 'dropdown'}
-        = user_signed_in? ? current_user.name : 'Not signed in'
+        - if user_signed_in?
+          %i.icon-user
+          = current_user.name
+        - else
+          Not signed in
         %b.caret
       %ul.dropdown-menu
         - if user_signed_in?

@@ -8,10 +8,16 @@
   - if current_user
     .span6
       .well
-        %h3= link_to "Write today's report", new_report_path
+        %h3
+          = link_to new_report_path do
+            %i.icon-file
+            Write today's report
     .span6
       .well
-        %h3= link_to "Show today's meeting slides", reports_path(:date => Date.today.to_s(:db))
+        %h3
+          = link_to reports_path(:date => Date.today.to_s(:db)) do
+            %i.icon-eye-open
+            Show today's meeting slides
   - else
     .span12
       .well
