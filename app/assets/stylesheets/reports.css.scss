@@ -1,5 +1,18 @@
 // Place all the styles related to the reports controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-img.jelly { border: 1px solid black }
+img.jelly {
+  border: {
+    width: 1px;
+    style: solid;
+    color: #CCC;
+    radius: 3px;
+  }
+}
+
+img.jelly-error { 
+  border: {
+    color: #B94A48 !important;
+  }
+}
 

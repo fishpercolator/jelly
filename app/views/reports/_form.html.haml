@@ -1,10 +1,15 @@
 = semantic_form_for @report do |f|
-  = f.semantic_errors
+  - if @report.errors.any?
+    .alert.alert-error
+      %strong Errors found:
+      See below for details
+  - if f.semantic_errors :jelly
+    .alert.alert-error= f.semantic_errors :jelly
   .row
     .span6
       = f.inputs do
         = f.input :jelly, :as => :hidden
-        =render :partial => 'jelly', :object => @report.jelly
+        = render 'jelly', :jelly => @report.jelly, :css => (@report.errors[:jelly].any? ? 'jelly jelly-error':'jelly')
         %map{:name => "jelly-map"}
           - jelly_coords.each_with_index do |c,i|
             %area{:coords => c, :id => "jelly-#{i+1}", :shape => "rect"}
