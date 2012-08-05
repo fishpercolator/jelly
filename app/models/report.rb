@@ -6,10 +6,10 @@ class Report < ActiveRecord::Base
   attr_accessible :excited, :help_needed, :jelly, :today, :previous_day
   attr_accessible :achievements_attributes, :tasks_attributes
   
-  has_many :achievements
+  has_many :achievements, :order => :id
   accepts_nested_attributes_for :achievements, :allow_destroy => true
 
-  has_many :tasks
+  has_many :tasks, :order => :id
   accepts_nested_attributes_for :tasks, :allow_destroy => true
   
   validates_presence_of :user, :excited, :jelly, :today, :previous_day
