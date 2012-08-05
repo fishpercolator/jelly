@@ -5,6 +5,8 @@ en:
   activerecord:
     attributes:
       report:
+        today: "Day of report"
+        previous_day: "Previous working day"
         jelly: "Jelly baby"
         excited: "I am most excited about"
         help_needed: "Who can help me?"

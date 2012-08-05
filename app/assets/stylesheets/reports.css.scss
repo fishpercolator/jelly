@@ -3,11 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 img.jelly {
   border: {
-    width: 1px;
+    width: 1px !important;
     style: solid;
     color: #CCC;
     radius: 3px;
   }
+  width: 400px;
 }
 
 img.jelly-error { 

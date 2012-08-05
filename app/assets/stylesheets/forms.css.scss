@@ -1,0 +1,28 @@
+form {
+  margin: {
+    top: 10px;
+  }
+}
+
+legend {
+  margin: {
+    bottom: 0px !important;
+  }
+}
+
+/* Sub-fieldsets */
+li.input fieldset.inputs {
+  margin: 0px !important;
+  padding: 0px !important;
+}
+
+li.input abbr {
+  font: {
+    size: 0.9em !important;
+  }
+}
+
+.image-map {
+  margin-left: 240px;
+}
+

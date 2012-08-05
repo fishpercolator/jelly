@@ -1,27 +1,45 @@
 = semantic_form_for @report do |f|
-  - if @report.errors.any?
-    .alert.alert-error
-      %strong Errors found:
-      See below for details
-  - if f.semantic_errors :jelly
-    .alert.alert-error= f.semantic_errors :jelly
   .row
-    .span6
+    .span12
+      - if @report.errors.any?
+        .alert.alert-error
+          %strong Errors found:
+          See below for details.
+      = f.inputs :name => 'Dates' do
+        .alert.alert-info Please ensure the dates below are correct for this report.
+        = f.input :today, :as => :ui_date_picker
+        = f.input :previous_day, :as => :ui_date_picker
+      = f.inputs :name => 'Headline' do
+        .alert.alert-info
+          This is a chance to tell the team what you're most excited about right now.
+          %br
+          It doesn't have to be work-related!
+        = f.input :excited
       = f.inputs :name => 'Jelly baby' do
+        .alert.alert-info Click the jelly baby that best describes your current mood.
+        - if f.semantic_errors :jelly
+          .alert.alert-error= f.semantic_errors :jelly
         = f.input :jelly, :as => :hidden
-        = render 'jelly', :jelly => @report.jelly, :css => (@report.errors[:jelly].any? ? 'jelly jelly-error':'jelly')
+        .image-map
+          = render 'jelly', :jelly => @report.jelly, :css => (@report.errors[:jelly].any? ? 'jelly jelly-error':'jelly')
         %map{:name => "jelly-map"}
           - jelly_coords.each_with_index do |c,i|
             %area{:coords => c, :id => "jelly-#{i+1}", :shape => "rect"}
-    .span6
-      = f.inputs :name => 'Report' do
-        = f.input :today, :as => :ui_date_picker
-        = f.input :previous_day, :as => :ui_date_picker
-        = f.input :excited
+      = f.inputs :name => %q{Previous day's achievements} do
+        .alert.alert-info
+          Choose the three things you did on your previous working day that you are most proud of.
+          %br
+          Everyone achieves more than three things in a day - just pick the top three!
         = f.inputs :for => :achievements do |achievement,i|
-          = achievement.input :text, :label => "Achievement #{i}"
+          = achievement.input :text, :label => "#{i}"
+      = f.inputs :name => %q{Today's tasks} do
+        .alert.alert-info
+          Choose the three things you would most like to achieve today.
         = f.inputs :for => :tasks do |task,i|
-          = task.input :text, :label => "Task #{i}"
+          = task.input :text, :label => "#{i}"
+      = f.inputs :name => %q{Other} do
+        .alert.alert-info
+          If any of your tasks can be more easily achieved with help from someone else, here is the place to mention that.
         = f.input :help_needed, :input_html => {:rows => 3}
   .form-actions
     = f.actions :submit, :cancel
