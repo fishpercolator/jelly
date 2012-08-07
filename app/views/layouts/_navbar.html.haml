@@ -6,13 +6,17 @@
 .container-fluid.nav-collapse
   %ul.nav
     %li
-      = link_to reports_path do
-        %i.icon-eye-open
-        Team reports
-    %li
       = link_to new_report_path do
         %i.icon-file
-        Add report
+        Write report
+    %li
+      = link_to reports_path :date => Date.today.to_s(:db) do
+        %i.icon-eye-open
+        Today's slides
+    %li
+      = link_to reports_path do
+        %i.icon-calendar
+        All reports
   %ul.nav.pull-right
     %li.dropdown
       %a.dropdown-toggle{:href => '#', 'data-toggle' => 'dropdown'}
