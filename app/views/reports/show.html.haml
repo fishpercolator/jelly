@@ -20,7 +20,7 @@
       - @report.tasks.each do |task|
         %li= task.text
     %h2 Who can help me?
-    %p= simple_format @report.help_needed
+    = simple_format @report.help_needed
     
 
 .form-actions
