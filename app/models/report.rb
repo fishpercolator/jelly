@@ -15,6 +15,9 @@ class Report < ActiveRecord::Base
   validates_presence_of :user, :excited, :jelly, :today, :previous_day
   validates_uniqueness_of :today, :scope => [:user_id]
   
+  # Support roles
+  resourcify
+  
   # Get a count of reports for each day, ordered by days in reverse
   def self.day_counts
     self.select('today, count(*) as c').group(:today).order('today desc')

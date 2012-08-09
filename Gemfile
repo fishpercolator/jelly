@@ -53,3 +53,6 @@ gem 'ui_datepicker-rails3'
 gem 'thin'
 gem 'will_paginate'
 gem 'mail'
+gem 'rolify'
+gem 'cancan'
+
