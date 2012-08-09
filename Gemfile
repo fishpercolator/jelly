@@ -52,4 +52,4 @@ gem 'formtastic-plus-bootstrap'
 gem 'ui_datepicker-rails3'
 gem 'thin'
 gem 'will_paginate'
-
+gem 'mail'

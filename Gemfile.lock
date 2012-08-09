@@ -157,6 +157,7 @@ DEPENDENCIES
   formtastic-plus-bootstrap
   haml-rails
   jquery-rails
+  mail
   pg
   rails (= 3.2.3)
   rolify
