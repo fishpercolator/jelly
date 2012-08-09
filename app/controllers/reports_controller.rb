@@ -1,6 +1,7 @@
 class ReportsController < ApplicationController
 
   before_filter :authenticate_user!
+  load_and_authorize_resource
 
   # GET /reports
   # GET /reports.json
@@ -20,6 +21,7 @@ class ReportsController < ApplicationController
   
   # GET /reports/by_day
   def by_day
+    authorize! :read, Report
     @days = Report.day_counts
   end
 
