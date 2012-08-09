@@ -1,0 +1,14 @@
+= content_for :title do
+  Reports - #{@date}
+
+.row
+  .span12
+    %h1 Reports for #{@date}
+.row
+  .span12
+    %ul
+      - @reports.each do |report|
+        %li
+          = gravatar_for report.user, 16
+          = link_to report.user.name, report_path(report)
+

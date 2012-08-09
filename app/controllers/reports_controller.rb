@@ -9,6 +9,11 @@ class ReportsController < ApplicationController
     if params[:date]
       @date = Date.parse(params[:date])
       @reports = Report.where(:today => @date).order(:created_at)
+      render :date_index and return
+    elsif params[:user]
+      @user = User.find(params[:user])
+      @reports = Report.where(:user_id => @user).order('today desc')
+      render :user_index and return
     else
       redirect_to :action => 'by_day' and return
     end

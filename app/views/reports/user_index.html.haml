@@ -1,0 +1,15 @@
+= content_for :title do
+  Reports - #{@user.name}
+
+.row
+  .span12
+    %h1
+      = gravatar_for @user
+      #{@user.name}'s reports
+.row
+  .span12
+    %ul
+      - @reports.each do |report|
+        %li
+          = link_to report.today, report_path(report)
+
