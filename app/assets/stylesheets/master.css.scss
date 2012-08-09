@@ -1,0 +1,6 @@
+$radius: 3px;
+img.gravatar {
+  border-radius: $radius;
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+}

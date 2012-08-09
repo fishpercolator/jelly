@@ -12,4 +12,5 @@
  *= require_tree .
  *= require formtastic-plus-bootstrap
  *= require forms
+ *= require master
 */

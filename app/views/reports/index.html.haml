@@ -5,5 +5,7 @@
 
 %ul
   - @reports.each do |report|
-    %li= link_to report.user.name, report_path(report)
+    %li
+      = gravatar_for report.user, 16
+      = link_to report.user.name, report_path(report)
 

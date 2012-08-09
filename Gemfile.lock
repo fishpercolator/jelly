@@ -58,6 +58,7 @@ GEM
       formtastic (~> 2.2)
       railties (>= 3.1.0)
       sass-rails
+    gravatar_image_tag (1.1.3)
     haml (3.1.5)
     haml-rails (0.3.4)
       actionpack (~> 3.0)
@@ -155,6 +156,7 @@ DEPENDENCIES
   devise
   formtastic
   formtastic-plus-bootstrap
+  gravatar_image_tag
   haml-rails
   jquery-rails
   mail

@@ -5,6 +5,10 @@
         .alert.alert-error
           %strong Errors found:
           See below for details.
+      = f.inputs :name => 'User' do
+        %h2
+          = gravatar_for @report.user
+          = @report.user.name
       = f.inputs :name => 'Dates' do
         .alert.alert-info Please ensure the dates below are correct for this report.
         = f.input :today, :as => :ui_date_picker

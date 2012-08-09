@@ -40,6 +40,7 @@ class ReportsController < ApplicationController
   # GET /reports/new.json
   def new
     @report = Report.new
+    @report.user ||= current_user
 
     respond_to do |format|
       format.html # new.html.erb

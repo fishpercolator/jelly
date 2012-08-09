@@ -2,6 +2,7 @@
 - prev = @report.previous_day == @report.today - 1 ? "Yesterday" : "On #{@report.previous_day.strftime('%A')}"
 
 %h1
+  = gravatar_for @report.user
   = @report.user.name
   %small= @report.today
 

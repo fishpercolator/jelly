@@ -55,4 +55,5 @@ gem 'will_paginate'
 gem 'mail'
 gem 'rolify'
 gem 'cancan'
+gem 'gravatar_image_tag'
 
