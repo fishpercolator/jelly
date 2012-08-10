@@ -34,6 +34,8 @@ class ReportsController < ApplicationController
   # GET /reports/1.json
   def show
     @report = Report.find(params[:id])
+    np = @report.next_prev
+    @next = np[:next]; @prev = np[:prev]
 
     respond_to do |format|
       format.html # show.html.erb

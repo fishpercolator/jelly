@@ -1,18 +1,25 @@
 - model_class = @report.class
-- prev = @report.previous_day == @report.today - 1 ? "Yesterday" : "On #{@report.previous_day.strftime('%A')}"
+- previous_day_text = @report.previous_day == @report.today - 1 ? "Yesterday" : "On #{@report.previous_day.strftime('%A')}"
 
-%h1
-  = gravatar_for @report.user
-  = @report.user.name
-  %small= @report.today
-
+.row
+  .span12
+    %h1
+      = gravatar_for @report.user
+      = @report.user.name
+      %small= @report.today
+.row
+  .span3
+    %a.btn{:class => @prev ? '':'disabled', :href => @prev ? url_for(@prev) : nil} Previous
+  .offset6.span3.right
+    %a.btn{:class => @next ? '':'disabled', :href => @next ? url_for(@next) : nil} Next
+  
 .row
   .span6
     = render :partial => 'jelly', :object => @report.jelly
   .span6
     %h2 I am most excited about:
     %p= @report.excited
-    %h2= "#{prev} I achieved:"
+    %h2= "#{previous_day_text} I achieved:"
     %ol
       - @report.achievements.each do |achievement|
         %li= achievement.text
@@ -22,7 +29,6 @@
         %li= task.text
     %h2 Who can help me?
     = simple_format @report.help_needed
-    
 
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), reports_path, :class => 'btn'

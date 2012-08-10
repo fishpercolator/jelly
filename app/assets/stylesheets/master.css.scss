@@ -4,3 +4,15 @@ img.gravatar {
   -moz-border-radius: $radius;
   -webkit-border-radius: $radius;
 }
+
+.row {
+  margin: {
+    top: 10px;
+    bottom: 10px;
+  }
+}
+
+.right {
+  text-align: right;
+}
+

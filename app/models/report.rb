@@ -45,5 +45,15 @@ class Report < ActiveRecord::Base
   	j[:tasks] = self.tasks
   	j
   end
+  
+  # Find the next and previous reports in the current meeting
+  def next_prev
+    reports = Report.where(:today => today).order(:created_at).to_a
+    index = reports.index(self)
+    {
+      :next => (index < reports.length ? reports[index+1] : nil),
+      :prev => (index > 0 ? reports[index-1] : nil)
+    }
+  end
     		
 end
