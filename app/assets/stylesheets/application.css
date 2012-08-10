@@ -9,8 +9,10 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
+ *= require bootstrap_and_overrides
+ *= require master
+ *= require scaffolds
  *= require formtastic-plus-bootstrap
  *= require forms
- *= require master
+ *= require themeroller
 */

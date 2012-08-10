@@ -1,0 +1,11 @@
+.row-fluid.title
+  .span2
+    = gravatar_for @report.user, 48
+  .span6
+    = @report.user.name
+  .span4
+    = @report.today
+.row-fluid
+  .span6
+    = render :partial => 'jelly', :object => @report.jelly
+

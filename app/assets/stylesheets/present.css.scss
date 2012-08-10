@@ -1,0 +1,51 @@
+/*
+*= require_self
+*= require bootstrap_and_overrides
+*/
+
+$radius: 12px;
+
+body {
+  background: {
+    color: black !important;
+  }
+  font-size: 20px !important;
+}
+body.extraWide {font-size: 30px !important;}
+body.wide {font-size: 25px !important;}
+body.narrow {font-size: 15px !important;}
+body.extraNarrow {font-size: 10px !important;}
+
+
+.row-fluid {
+  margin: {
+    top: 1em;
+    bottom: 1em;
+  }
+}
+
+.title {
+  background: {
+    color: #ddd;
+  }
+  border-radius: $radius;
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  font: {
+    size: 2em;
+    weight: bold;
+  }
+}
+
+@for $i from 1 through 12 {
+  .title .span#{$i} {
+    padding: 10px;
+  }
+}
+
+img.jelly {
+  border-radius: $radius;
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+}
+

@@ -37,12 +37,16 @@ class ReportsController < ApplicationController
     np = @report.next_prev
     @next = np[:next]; @prev = np[:prev]
 
+    if params[:present]
+      render :present, :layout => 'present' and return
+    end
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @report }
     end
   end
-
+  
   # GET /reports/new
   # GET /reports/new.json
   def new

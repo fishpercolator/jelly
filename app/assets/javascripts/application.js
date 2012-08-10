@@ -15,5 +15,6 @@
 //= require jquery-ui
 //= require jquery.imagemapster
 //= require twitter/bootstrap
-//= require_tree .
+//= require bootstrap
+//= require datepicker
 

@@ -1,0 +1,9 @@
+!!!
+%html{:lang => "en"}
+  %head
+    = render 'layouts/head', :stylesheet => 'present'
+  %body
+    .container-fluid
+      = yield
+      = javascript_include_tag "application", controller_name, 'present'
+
