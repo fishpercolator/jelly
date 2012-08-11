@@ -1,11 +1,25 @@
+= content_for :title do
+  Meeting for #{@report.today}
 .row-fluid.title
-  .span2
-    = gravatar_for @report.user, 48
-  .span6
-    = @report.user.name
-  .span4
-    = @report.today
+  .span9
+    %h1
+      = gravatar_for @report.user, 48
+      = @report.user.name
+      %small= @report.today
+  .span3
+    - if @prev
+      / Hidden link for JS keypress event
+      = link_to 'Prev', report_path(@prev, :present => true), :id => 'prev', :style => 'display:none'
+    - if @next
+      = link_to report_path(@next, :present => true), :id => 'next', :class => 'btn pull-right' do
+        Next: 
+        = gravatar_for @next.user, 16
+        = @next.user.name
+    - else
+      = link_to 'Last report', reports_path(:date => @report.today.to_s(:db)), :id => 'next', :class => 'btn pull-right'
 .row-fluid
   .span6
-    = render :partial => 'jelly', :object => @report.jelly
+    = render 'jelly', :jelly => @report.jelly
+  .span6
+    = render 'report_text', :report => @report
 

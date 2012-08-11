@@ -10,4 +10,18 @@ module ReportsHelper
        321,708,354,832 427,673,499,792 406,809,533,857}
   end
 
+  # Text representing the given date with reference to the specified reference date, 
+  # e.g. "On Wednesday" or "Yesterday"
+  def date_text(date, reference_date)
+    if date == reference_date
+      "Today"
+    elsif date == reference_date - 1
+      "Yesterday"
+    elsif date > reference_date - 7
+      "On #{date.strftime '%A'}"
+    else
+      "On #{date.strftime '%e %b'}"
+    end
+  end
+  
 end

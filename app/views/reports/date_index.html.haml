@@ -4,11 +4,20 @@
 .row
   .span12
     %h1 Reports for #{@date}
-.row
-  .span12
-    %ul
-      - @reports.each do |report|
-        %li
-          = gravatar_for report.user, 16
-          = link_to report.user.name, report_path(report)
+- if @reports.any?
+  .row
+    .span12
+      = link_to report_path(@reports.first, :present => true), :class => 'btn btn-primary' do
+        %i.icon-eye-open
+        Present
+  .row
+    .span12
+      %ul
+        - @reports.each do |report|
+          %li
+            = gravatar_for report.user, 16
+            = link_to report.user.name, report_path(report)
+- else
+  .alert.alert-block.alert-warn
+    %h4.alert-heading No reports to show!
 

@@ -3,49 +3,28 @@
 *= require bootstrap_and_overrides
 */
 
-$radius: 12px;
+/* Let's make the base size a variable and base everything on that */
+$s: 20px;
 
 body {
-  background: {
-    color: black !important;
-  }
-  font-size: 20px !important;
+  font-size: $s !important;
 }
-body.extraWide {font-size: 30px !important;}
-body.wide {font-size: 25px !important;}
-body.narrow {font-size: 15px !important;}
-body.extraNarrow {font-size: 10px !important;}
-
+body.wide {
+  font-size: $s * 2 !important;
+}
 
 .row-fluid {
   margin: {
-    top: 1em;
-    bottom: 1em;
+    top: $s;
+    bottom: $s;
   }
 }
 
-.title {
-  background: {
-    color: #ddd;
-  }
-  border-radius: $radius;
-  -webkit-border-radius: $radius;
-  -moz-border-radius: $radius;
-  font: {
-    size: 2em;
-    weight: bold;
-  }
+.span6 {
+  border: 1px solid black;
 }
 
-@for $i from 1 through 12 {
-  .title .span#{$i} {
-    padding: 10px;
-  }
-}
-
-img.jelly {
-  border-radius: $radius;
-  -webkit-border-radius: $radius;
-  -moz-border-radius: $radius;
+#next {
+  float: right;
 }
 

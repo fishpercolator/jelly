@@ -1,5 +1,4 @@
 - model_class = @report.class
-- previous_day_text = @report.previous_day == @report.today - 1 ? "Yesterday" : "On #{@report.previous_day.strftime('%A')}"
 
 .row
   .span12
@@ -9,26 +8,15 @@
       %small= @report.today
 .row
   .span3
-    %a.btn{:class => @prev ? '':'disabled', :href => @prev ? url_for(@prev) : nil} Previous
-  .offset6.span3.right
-    %a.btn{:class => @next ? '':'disabled', :href => @next ? url_for(@next) : nil} Next
+    %a.btn{:id => 'prev', :class => @prev ? '':'disabled', :href => @prev ? url_for(@prev) : nil} Previous
+  .offset6.span3
+    %a.btn.pull-right{:id => 'next', :class => @next ? '':'disabled', :href => @next ? url_for(@next) : nil} Next
   
 .row
   .span6
-    = render :partial => 'jelly', :object => @report.jelly
+    = render 'jelly', :jelly => @report.jelly
   .span6
-    %h2 I am most excited about:
-    %p= @report.excited
-    %h2= "#{previous_day_text} I achieved:"
-    %ol
-      - @report.achievements.each do |achievement|
-        %li= achievement.text
-    %h2= "Today I plan to achieve:"
-    %ol
-      - @report.tasks.each do |task|
-        %li= task.text
-    %h2 Who can help me?
-    = simple_format @report.help_needed
+    = render 'report_text', :report => @report
 
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), reports_path, :class => 'btn'
