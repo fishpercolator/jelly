@@ -73,6 +73,12 @@ Now the application should be ready to run!
 ```console
 $ rails server
 ```
+Once you've registered a user, you'll probably want to make it an admin user. This can be done with a simple rake command:
+
+```console
+$ rake admin:add[user@example.com]
+user@example.com is now an admin
+```
 
 ### Installation to Heroku
 
@@ -95,6 +101,7 @@ Setting config vars and restarting calm-shore-7081... done, v2
 GMAIL_DOMAIN: gmail.com
 $ # Do the above step for each of the config variables in your 00dev.rb
 $ git push heroku
+$ heroku run rake db:migrate
 ```
 
 And that should be it! Your app should be ready to view at the URL Heroku assigned you during the `heroku create` step.
