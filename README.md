@@ -71,7 +71,7 @@ conf.each {|k,v| ENV[k] = v}
 Now the application should be ready to run!
 
 ```console
-rails server
+$ rails server
 ```
 
 ### Installation to Heroku
