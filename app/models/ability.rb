@@ -6,7 +6,7 @@ class Ability
     if user.has_role? :admin
       can :manage, :all
     elsif !user.new_record?
-      can :read, :all
+      can :read, Report
       can :create, Report
       can :manage, Report do |report|
         report.user == user

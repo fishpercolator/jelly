@@ -1,0 +1,11 @@
+- content_for :title do
+  Admin: Edit user
+%h1 Admin: Edit user
+= semantic_form_for @user, :url => admin_user_path(@user), :html => {:method => :put, :class => 'well'} do |f|
+  = f.inputs do
+    = f.input :email
+    = f.input :name
+    = f.input :password, :hint => "Leave blank if you don't want to change it"
+  .form-actions
+    = f.actions :submit, :cancel
+

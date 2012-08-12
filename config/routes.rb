@@ -4,6 +4,9 @@ Jelly::Application.routes.draw do
   resources :reports
 
   devise_for :users
+  namespace :admin do
+    resources :users
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
