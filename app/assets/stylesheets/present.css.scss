@@ -1,30 +1,60 @@
 /*
-*= require_self
 *= require bootstrap_and_overrides
+*= require_self
 */
 
-/* Let's make the base size a variable and base everything on that */
-$s: 20px;
+/* Wide base font */
+$wb: 25px;
 
-body {
-  font-size: $s !important;
-}
 body.wide {
-  font-size: $s * 2 !important;
+  font-size: $wb;
+  line-height: $wb + 10px;
+  
+  li, p, a {
+    font-size: $wb;
+    line-height: $wb + 10px;
+  }
+  
+  li {
+    margin-left: 15px;
+  }
+  
+  h1 {
+    font-size: 2 * $wb;
+    line-height: (2 * $wb) + 10px;
+    small {
+      font-size: $wb;
+    }
+  }
+  
+  h2 {
+    font-size: 1.5 * $wb;
+    line-height: (1.5 * $wb) + 10px;
+  }
+}
+
+.title {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 18px;
+}
+
+.gravatar-large {
+  display: none;
+}
+
+body.wide {
+  .gravatar-large {
+    display: inline;
+  }
+  .gravatar-small {
+    display: none;
+  }
 }
 
 .row-fluid {
   margin: {
-    top: $s;
-    bottom: $s;
+    top: 1em;
+    bottom: 1em;
   }
-}
-
-.span6 {
-  border: 1px solid black;
-}
-
-#next {
-  float: right;
 }
 

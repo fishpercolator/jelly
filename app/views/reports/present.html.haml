@@ -3,7 +3,8 @@
 .row-fluid.title
   .span9
     %h1
-      = gravatar_for @report.user, 48
+      = gravatar_for @report.user, 48, :class => 'gravatar-small'
+      = gravatar_for @report.user, 64, :class => 'gravatar-large'
       = @report.user.name
       %small= @report.today
   .span3
@@ -19,7 +20,9 @@
       = link_to 'Last report', reports_path(:date => @report.today.to_s(:db)), :id => 'next', :class => 'btn pull-right'
 .row-fluid
   .span6
-    = render 'jelly', :jelly => @report.jelly
+    .well
+      = render 'jelly', :jelly => @report.jelly
   .span6
-    = render 'report_text', :report => @report
+    .well
+      = render 'report_text', :report => @report
 
