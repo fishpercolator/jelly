@@ -40,7 +40,7 @@ Next, install all the gem dependencies:
 $ bundle install
 ```
 
-Install the PostgreSQL database (use password j3llyb4by if you don't want to edit database.yml):
+Install the PostgreSQL database (use password *j3llyb4by* if you don't want to edit database.yml):
 
 ```console
 $ sudo -u postgres createuser -DPRS jelly
@@ -93,7 +93,7 @@ Git remote heroku added
 $ heroku config:add GMAIL_DOMAIN=gmail.com
 Setting config vars and restarting calm-shore-7081... done, v2
 GMAIL_DOMAIN: gmail.com
-$ # Do the above step for each of the config variables in your `00dev.rb`
+$ # Do the above step for each of the config variables in your 00dev.rb
 $ git push heroku
 ```
 
