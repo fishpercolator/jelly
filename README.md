@@ -64,7 +64,7 @@ conf = {
   # Set this to the hostname for URLs that appear in development emails 
   'APPHOST' => 'localhost:3000',
   # Set this to an email address that will receive all email in development mode
-  'DEV_EMAIL' => 'rich.daley.uk@gmail.com'
+  'DEV_EMAIL' => 'developeremail@isp.com'
 }
 conf.each {|k,v| ENV[k] = v}
 ```
