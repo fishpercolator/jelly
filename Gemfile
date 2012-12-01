@@ -39,10 +39,15 @@ gem 'jquery-rails'
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 # Work without node.js
-gem 'therubyracer', :group => :assets, :platform => :ruby
+gem 'therubyracer'
+
+# Use a later version of eventmachine to overcome a build bug - remove
+# this line when 1.0.0 is released.
+gem "eventmachine", "~> 1.0.0.rc.4"
 
 # Stuff for my app
 gem 'haml-rails'
+gem 'less-rails'
 gem 'twitter-bootstrap-rails'
 gem 'devise'
 gem 'cancan'
