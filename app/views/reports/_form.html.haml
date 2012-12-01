@@ -1,3 +1,5 @@
+- if @report.previous_day_report
+  - @report.previous_day ||= @report.previous_day_report.today
 = semantic_form_for @report do |f|
   .row
     .span12
@@ -36,6 +38,12 @@
           Everyone achieves more than three things in a day - just pick the top three!
         = f.inputs :for => :achievements do |achievement,i|
           = achievement.input :text, :label => "#{i}"
+        - if @report.previous_day_report
+          .alert.alert-success
+            A reminder of your tasks from #{date_text(@report.previous_day_report.today,@report.today)}:
+            %ol.enumerate
+              - @report.previous_day_report.tasks.each do |task|
+                %li= task.text
       = f.inputs :name => %q{Today's tasks} do
         .alert.alert-info
           Choose the three things you would most like to achieve today.

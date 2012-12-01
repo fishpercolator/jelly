@@ -27,7 +27,6 @@ class Report < ActiveRecord::Base
   after_initialize do
   	if new_record?
   		self.today ||= Date.today
-  		self.previous_day ||= JellyDates.previous_working_day(today)
   		# ensure we have exactly 3 achievements and 3 tasks
   		while self.achievements.length < 3
   			self.achievements << Achievement.new
@@ -54,6 +53,13 @@ class Report < ActiveRecord::Base
       :next => (index < reports.length ? reports[index+1] : nil),
       :prev => (index > 0 ? reports[index-1] : nil)
     }
+  end
+
+  # The report for the previous working day for this user, if there is
+  # one (nil otherwise)
+  def previous_day_report
+    Report.where(:today => JellyDates.previous_working_day(today),
+                 :user_id => user).first
   end
     		
 end

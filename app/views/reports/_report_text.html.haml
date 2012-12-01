@@ -1,6 +1,6 @@
 %h2 I am most excited about:
 %p= report.excited
-%h2= "#{date_text report.previous_day,report.today} I achieved:"
+%h2= "#{date_text(report.previous_day,report.today).titleize} I achieved:"
 %ol
   - report.achievements.each do |achievement|
     %li= achievement.text

@@ -14,13 +14,13 @@ module ReportsHelper
   # e.g. "On Wednesday" or "Yesterday"
   def date_text(date, reference_date)
     if date == reference_date
-      "Today"
+      "today"
     elsif date == reference_date - 1
-      "Yesterday"
+      "yesterday"
     elsif date > reference_date - 7
-      "On #{date.strftime '%A'}"
+      "on #{date.strftime '%A'}"
     else
-      "On #{date.strftime '%e %b'}"
+      "on #{date.strftime '%e %b'}"
     end
   end
   
