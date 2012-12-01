@@ -9,6 +9,9 @@ $ ->
         $('#jelly-image').attr 'src', "/assets/jelly_babies/#{n}.png"
         $('.mapster_el').attr 'src', "/assets/jelly_babies/#{n}.png"
         $('#report_jelly').val(n)
+  $('#report_jelly').change ->
+    n = $(this).val()
+    $("#jelly-#{n}").click()
   $(document).keypress (event) ->
     switch event.which
       when 37, 98, 112 # left, b, p

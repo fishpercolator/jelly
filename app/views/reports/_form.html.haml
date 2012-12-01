@@ -23,7 +23,7 @@
         .alert.alert-info Click the jelly baby that best describes your current mood.
         - if f.semantic_errors :jelly
           .alert.alert-error= f.semantic_errors :jelly
-        = f.input :jelly, :as => :hidden
+        = f.input :jelly, :as => :select, :collection => (1..23)
         .image-map
           = render 'jelly', :jelly => @report.jelly, :css => (@report.errors[:jelly].any? ? 'jelly jelly-error':'jelly')
         %map{:name => "jelly-map"}
