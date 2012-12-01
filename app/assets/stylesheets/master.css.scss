@@ -1,5 +1,13 @@
 body { padding-top: 60px; }
 
+a {
+  color: #333;
+}
+
+a:hover {
+  color: black;
+}
+
 $radius: 3px;
 img.gravatar {
   border-radius: $radius;
