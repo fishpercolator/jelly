@@ -40,7 +40,7 @@
           = achievement.input :text, :label => "#{i}"
         - if @report.previous_day_report
           .alert.alert-success
-            A reminder of your tasks from #{date_text(@report.previous_day_report.today,@report.today)}:
+            A reminder of your tasks from #{link_to date_text(@report.previous_day_report.today,@report.today), report_path(@report.previous_day_report)}:
             %ol.enumerate
               - @report.previous_day_report.tasks.each do |task|
                 %li= task.text
