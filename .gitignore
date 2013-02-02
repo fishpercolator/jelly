@@ -16,4 +16,5 @@ rerun.txt
 pickle-email-*.html
 **~
 /config/initializers/00dev.rb
+.vagrant
 
