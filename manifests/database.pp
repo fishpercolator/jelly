@@ -10,6 +10,6 @@ class database {
     path    => '/usr/bin:/usr/local/bin',
     cwd     => '/vagrant',
     user    => 'vagrant',
-    require => Class['ruby-env'];
+    require => [Class['ruby-env'], Postgresql::Db['jelly']];
   }
 }
