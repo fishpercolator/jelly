@@ -10,6 +10,7 @@ Vagrant::Config.run do |config|
   config.vm.forward_port 3000, 3000
 
   config.vm.provision :puppet do |puppet|
+    puppet.working_directory = "/tmp/vagrant-puppet/manifests"
     puppet.manifests_path = "manifests"
     puppet.module_path    = "modules"
     puppet.manifest_file  = "base.pp"
