@@ -39,7 +39,7 @@ gem 'jquery-rails'
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 # Work without node.js
-gem 'therubyracer'
+#gem 'therubyracer'
 
 # Use a later version of eventmachine to overcome a build bug - remove
 # this line when 1.0.0 is released.
