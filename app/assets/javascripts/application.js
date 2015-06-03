@@ -12,9 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery-ui
 //= require jquery.imagemapster
-//= require twitter/bootstrap
-//= require bootstrap
+//= require bootstrap-sprockets
 //= require datepicker
-
+//= require_tree .

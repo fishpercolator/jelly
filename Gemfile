@@ -10,6 +10,7 @@ gem 'pg'
 gem 'sass-rails', '~> 5.0'
 # Include Bootstrap styles & JS
 gem 'bootstrap-sass', '~> 3.3.4'
+gem 'bootswatch-rails', '~> 3.2.4'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -26,6 +27,7 @@ gem 'puma', '~> 2.11'
 
 # Stuff for my app
 gem 'devise', '~> 3.4.1'
+gem 'devise-bootstrap-views', '~> 0.0.4'
 gem 'cancan', '~> 1.6.10'
 gem 'rolify', '~> 4.0.0'
 gem 'formtastic-bootstrap', github: 'mjbellantoni/formtastic-bootstrap'
