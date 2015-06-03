@@ -1,0 +1,20 @@
+db:
+  image: postgres
+  ports:
+    - "5432"
+web:
+  build: .
+  command: bundle exec puma -C config/puma.rb
+  volumes:
+    - .:/usr/src/jelly
+  volumes_from:
+    - bundle
+  ports:
+    - "3000:3000"
+  links:
+    - db
+bundle:
+  image: jelly_web
+  command: echo Done
+  volumes:
+    - /bundle

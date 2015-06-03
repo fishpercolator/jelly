@@ -1,61 +1,34 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.11'
+# Ruby version (needed by Heroku)
+ruby '2.2.1'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-#gem 'sqlite3'
+gem 'rails', '4.2.1'
 gem 'pg'
 
-
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platform => :ruby
-
-  gem 'uglifier', '>= 1.0.3'
-end
-
+# Use SCSS for stylesheets
+gem 'sass-rails', '~> 5.0'
+# Include Bootstrap styles & JS
+gem 'bootstrap-sass', '~> 3.3.4'
+# Use Uglifier as compressor for JavaScript assets
+gem 'uglifier', '>= 1.3.0'
+# Use CoffeeScript for .coffee assets and views
+gem 'coffee-rails', '~> 4.1.0'
+# Use Haml for views
+gem 'haml-rails', '~> 0.9'
+# See https://github.com/rails/execjs#readme for more supported runtimes
+gem 'therubyracer', platforms: :ruby
+# Use jquery as the JavaScript library
 gem 'jquery-rails'
 
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
-
-# Work without node.js
-gem 'therubyracer'
-
-# Use a later version of eventmachine to overcome a build bug - remove
-# this line when 1.0.0 is released.
-gem "eventmachine", "~> 1.0.0.rc.4"
+# Use Puma as the application server
+gem 'puma', '~> 2.11'
 
 # Stuff for my app
-gem 'haml-rails'
-gem 'less-rails'
-gem 'twitter-bootstrap-rails'
-gem 'devise'
-gem 'cancan'
-gem 'rolify', '>= 3.2'
-gem 'formtastic'
-gem 'formtastic-plus-bootstrap'
-gem 'ui_datepicker-rails3'
-gem 'thin'
-gem 'mail'
-gem 'gravatar_image_tag'
-
+gem 'devise', '~> 3.4.1'
+gem 'cancan', '~> 1.6.10'
+gem 'rolify', '~> 4.0.0'
+gem 'formtastic-bootstrap', github: 'mjbellantoni/formtastic-bootstrap'
+gem 'bootstrap-datepicker-rails', '~> 1.4.0'
+gem 'mail', '~> 2.6.3'
+gem 'gravatar_image_tag', '~> 1.2.0'
