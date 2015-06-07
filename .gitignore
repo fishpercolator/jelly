@@ -17,4 +17,5 @@ pickle-email-*.html
 **~
 /config/initializers/00dev.rb
 .vagrant
+public/assets
 
