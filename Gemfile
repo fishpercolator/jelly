@@ -28,9 +28,11 @@ gem 'puma', '~> 2.11'
 # Stuff for my app
 gem 'devise', '~> 3.4.1'
 gem 'devise-bootstrap-views', '~> 0.0.4'
-gem 'cancan', '~> 1.6.10'
+gem 'cancancan', '~> 1.10.1'
 gem 'rolify', '~> 4.0.0'
 gem 'formtastic-bootstrap', github: 'mjbellantoni/formtastic-bootstrap'
-gem 'bootstrap-datepicker-rails', '~> 1.4.0'
 gem 'mail', '~> 2.6.3'
 gem 'gravatar_image_tag', '~> 1.2.0'
+#gem 'jquery-ui-sass-rails', '~> 4.0.3.0'
+gem 'bootstrap-datepicker-rails', '~> 1.4.0'
+
