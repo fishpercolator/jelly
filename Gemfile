@@ -27,7 +27,7 @@ gem 'puma', '~> 2.11'
 
 # Stuff for my app
 gem 'devise', '~> 3.4.1'
-gem 'devise-bootstrap-views', '~> 0.0.4'
+gem 'devise-bootstrap-views', '~> 0.0.5'
 gem 'cancancan', '~> 1.10.1'
 gem 'rolify', '~> 4.0.0'
 gem 'formtastic-bootstrap', github: 'mjbellantoni/formtastic-bootstrap'

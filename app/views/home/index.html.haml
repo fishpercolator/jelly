@@ -1,27 +1,25 @@
-.row
-  .span12
-    .hero-unit
-      %h1
-        Jelly
-        %small Let's get daily meetings down to minutes.
+.jumbotron
+  %h1
+    Jelly
+    %small Let's get daily meetings down to minutes.
 .row
   - if current_user
-    .span6
+    .col-md-6
       .well
         %h3
           = link_to new_report_path do
             %i.icon-file
             Write today's report
-    .span6
+    .col-md-6
       .well
         %h3
           = link_to reports_path(:date => Date.today.to_s(:db)) do
             %i.icon-eye-open
             Show today's meeting slides
   - else
-    .span12
+    .col-md-12
       .well
         %h3 Sign up or sign in to begin
-        = render "devise/sessions/form", :css => 'form-horizontal'
-        = render "devise/links"
+        = render "devise/sessions/form"
+        = render "devise/shared/links"
 

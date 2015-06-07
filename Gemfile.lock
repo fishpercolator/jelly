@@ -184,7 +184,7 @@ DEPENDENCIES
   cancancan (~> 1.10.1)
   coffee-rails (~> 4.1.0)
   devise (~> 3.4.1)
-  devise-bootstrap-views (~> 0.0.4)
+  devise-bootstrap-views (~> 0.0.5)
   formtastic-bootstrap!
   gravatar_image_tag (~> 1.2.0)
   haml-rails (~> 0.9)
