@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   match 'reports/by_day' => 'reports#by_day', via: [:get]
+  match 'reports/present' => 'reports#present', via: [:get]
   resources :reports
 
   devise_for :users, controllers: { registrations: 'registrations' }

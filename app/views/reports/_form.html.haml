@@ -4,13 +4,9 @@
   .row
     .col-md-12
       - if @report.errors.any?
-        .alert.alert-error
+        .alert.alert-danger
           %strong Errors found:
           See below for details.
-      = f.inputs :name => 'User' do
-        %h2
-          = gravatar_for @report.user
-          = @report.user.name
       = f.inputs :name => 'Dates' do
         .well Please ensure the dates below are correct for this report.
         = f.input :today, as: :string, input_html: {class: 'datepicker', value: (f.object.today.try(:strftime, '%Y-%m-%d'))}
@@ -25,8 +21,8 @@
         .well Click the jelly baby that best describes your current mood.
         - if f.semantic_errors :jelly
           .alert.alert-error= f.semantic_errors :jelly
-          = f.input :jelly, :as => :select, :collection => (1..23)
-          = render 'jelly', :jelly => @report.jelly, :css => (@report.errors[:jelly].any? ? 'jelly jelly-error':'jelly')
+        = f.input :jelly, :as => :select, :collection => (1..23)
+        = render 'jelly', :jelly => @report.jelly, :css => (@report.errors[:jelly].any? ? 'jelly jelly-error':'jelly')
         %map{:name => "jelly-map"}
           - jelly_coords.each_with_index do |c,i|
             %area{:coords => c, :id => "jelly-#{i+1}", :shape => "rect"}

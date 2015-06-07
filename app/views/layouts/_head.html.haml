@@ -1,10 +1,11 @@
+- app ||= 'application'
 %meta{:charset => "utf-8"}/
 %meta{'http-equiv' => 'X-UA-Compatible', content: 'IE=edge'}/
 %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
 %title= content_for?(:title) ? "#{yield(:title)} - Jelly" : "Jelly"
 = csrf_meta_tags
-= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
-= javascript_include_tag 'application', 'data-turbolinks-track' => true
+= stylesheet_link_tag app, media: 'all', 'data-turbolinks-track' => true
+= javascript_include_tag app, 'data-turbolinks-track' => true
 %link{:href => "images/favicon.ico", :rel => "shortcut icon"}/
 %link{:href => "images/apple-touch-icon.png", :rel => "apple-touch-icon"}/
 %link{:href => "images/apple-touch-icon-72x72.png", :rel => "apple-touch-icon", :sizes => "72x72"}/

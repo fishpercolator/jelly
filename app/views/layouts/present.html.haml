@@ -1,9 +1,16 @@
 !!!
 %html{:lang => "en"}
   %head
-    = render 'layouts/head', :stylesheet => 'present'
+    = render partial: 'layouts/head', locals: {app: 'present'}
   %body
-    .container-fluid
-      = yield
-      = javascript_include_tag 'application'
-
+    .reveal
+      .slides
+        = yield
+    :javascript
+      Reveal.initialize({
+        controls: false,
+        progress: true,
+        history: true,
+        center: true,
+        theme: 'simple'
+      });

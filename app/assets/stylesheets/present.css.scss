@@ -1,66 +1,35 @@
-div#presentation {
-/*
-*= require bootstrap_and_overrides
-*= require_self
-*/
+@import "reveal";
+@import "reveal-theme/simple";
 
-/* Wide base font */
-$wb: 25px;
+.slides {
 
-body.wide {
-  font-size: $wb;
-  line-height: $wb + 10px;
-  
-  li, p, a {
-    font-size: $wb;
-    line-height: $wb + 10px;
-  }
-  
-  li {
-    margin-left: 15px;
-  }
-  
-  h1 {
-    font-size: 2 * $wb;
-    line-height: (2 * $wb) + 10px;
-    small {
-      font-size: $wb;
+  h2.title {
+    text-align: left;
+
+    img.gravatar {
+      height: 100% !important;
+      margin: 0px !important;
+      border: 1px solid black;
     }
   }
-  
-  h2 {
-    font-size: 1.5 * $wb;
-    line-height: (1.5 * $wb) + 10px;
+
+  img.jelly {
+    width: 40%;
+    float: left;
+    margin-right: 1em;
   }
-}
 
-.title {
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 18px;
-}
+  .report-text {
+    text-align: left;
+    font-size: 0.5em;
 
-.gravatar-large {
-  display: none;
-}
+    h2 {
+      margin-top: 0.5em;
+    }
 
-body.wide {
-  .gravatar-large {
-    display: inline;
+    li {
+      line-height: 1.2em;
+    }
   }
-  .gravatar-small {
-    display: none;
-  }
-}
-
-.row-fluid {
-  margin: {
-    top: 1em;
-    bottom: 1em;
-  }
-}
-
-img.jelly {
-  max-height: 100%;
-}
 
 }

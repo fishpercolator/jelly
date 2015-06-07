@@ -8,7 +8,7 @@
 - if @reports.any?
   .row
     .col-md-12
-      = link_to report_path(@reports.first, :present => true), :class => 'btn btn-primary' do
+      = link_to reports_present_path(date: @date.to_s(:db)), :class => 'btn btn-primary' do
         = glyph 'eye-open'
         Present
   .row

@@ -38,14 +38,17 @@ class ReportsController < ApplicationController
     np = @report.next_prev
     @next = np[:next]; @prev = np[:prev]
 
-    if params[:present]
-      render :present, :layout => 'present' and return
-    end
-    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @report }
     end
+  end
+
+  # GET /reports/present?date=2015-06-07
+  def present
+    @date = Date.parse(params[:date])
+    @reports = Report.where(today: @date).order(:created_at)
+    render :present, layout: 'present'
   end
   
   # GET /reports/new
