@@ -4,7 +4,7 @@
     = render 'layouts/head'
   %body
     = render 'layouts/navbar'
-    .container-fluid
+    .container-fluid{class: params[:controller]}
       = render 'layouts/alerts'
       = yield
       %footer
@@ -12,5 +12,4 @@
           &copy; 2012-2015 Fish Percolator #{link_to "[github]", "https://github.com/fishpercolator/jelly"}
           %br
           &copy; #{link_to "Trainer Bubble", "http://www.trainerbubble.com/"} (Jelly Baby Tree). Used with permission.
-    = javascript_include_tag 'application'
 
