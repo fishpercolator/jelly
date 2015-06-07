@@ -15,4 +15,5 @@
 //= require jquery.imagemapster
 //= require bootstrap-datepicker
 //= require bootstrap-sprockets
+//= require turbolinks
 //= require_tree .

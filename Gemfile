@@ -21,6 +21,7 @@ gem 'haml-rails', '~> 0.9'
 gem 'therubyracer', platforms: :ruby
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'turbolinks'
 
 # Use Puma as the application server
 gem 'puma', '~> 2.11'
