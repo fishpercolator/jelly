@@ -8,13 +8,13 @@
       .well
         %h3
           = link_to new_report_path do
-            %i.icon-file
+            = glyph 'file'
             Write today's report
     .col-md-6
       .well
         %h3
           = link_to reports_path(:date => Date.today.to_s(:db)) do
-            %i.icon-eye-open
+            = glyph 'eye-open'
             Show today's meeting slides
   - else
     .col-md-12

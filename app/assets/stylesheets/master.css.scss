@@ -5,6 +5,14 @@ img.gravatar {
   -webkit-border-radius: $radius;
 }
 
+footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  padding: 1em;
+}
+
 /*
 ol.enumerate {
    margin-left: 30px !important;

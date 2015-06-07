@@ -1,10 +1,14 @@
 = content_for :title do
   Reports - all
 
-%h1 All reports
+.row
+  .col-md-12
+    %h1 All reports
 
-%ul
-  - @days.each do |d|
-    %li
-      = link_to d.today, reports_path(:date => d.today.to_s(:db))
-      = "(#{d.c})"
+.row
+  .col-md-12
+    %ul
+      - @days.each do |d|
+        %li
+          = link_to d.today, reports_path(:date => d.today.to_s(:db))
+          = "(#{d.c})"

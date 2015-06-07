@@ -2,16 +2,17 @@
   Reports - #{@date}
 
 .row
-  .span12
+  .col-md-12
     %h1 Reports for #{@date}
+    
 - if @reports.any?
   .row
-    .span12
+    .col-md-12
       = link_to report_path(@reports.first, :present => true), :class => 'btn btn-primary' do
-        %i.icon-eye-open
+        = glyph 'eye-open'
         Present
   .row
-    .span12
+    .col-md-12
       %ul
         - @reports.each do |report|
           %li

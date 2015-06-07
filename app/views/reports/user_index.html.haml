@@ -2,12 +2,12 @@
   Reports - #{@user.name}
 
 .row
-  .span12
+  .col-md-12
     %h1
       = gravatar_for @user
       #{@user.name}'s reports
 .row
-  .span12
+  .col-md-12
     %ul
       - @reports.each do |report|
         %li
