@@ -5,11 +5,23 @@ img.gravatar {
   -webkit-border-radius: $radius;
 }
 
-footer {
-  position: absolute;
-  width: 100%;
-  bottom: 0;
-  left: 0;
+* {
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -5em;
+}
+
+footer, .push {
+  height: 5em;
   padding: 1em;
 }
 
