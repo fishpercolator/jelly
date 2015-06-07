@@ -2,7 +2,7 @@
   - @report.previous_day ||= @report.previous_day_report.today
 = semantic_form_for @report do |f|
   .row
-    .span12
+    .col-md-12
       - if @report.errors.any?
         .alert.alert-error
           %strong Errors found:
@@ -12,47 +12,48 @@
           = gravatar_for @report.user
           = @report.user.name
       = f.inputs :name => 'Dates' do
-        .alert.alert-info Please ensure the dates below are correct for this report.
+        .well Please ensure the dates below are correct for this report.
         = f.input :today, as: :string, input_html: {class: 'datepicker', value: (f.object.today.try(:strftime, '%Y-%m-%d'))}
         = f.input :previous_day, as: :string, input_html: {class: 'datepicker', value: (f.object.previous_day.try(:strftime, '%Y-%m-%d'))}
       = f.inputs :name => 'Headline' do
-        .alert.alert-info
+        .well
           This is a chance to tell the team what you're most excited about right now.
           %br
           It doesn't have to be work-related!
         = f.input :excited
       = f.inputs :name => 'Jelly baby' do
-        .alert.alert-info Click the jelly baby that best describes your current mood.
+        .well Click the jelly baby that best describes your current mood.
         - if f.semantic_errors :jelly
           .alert.alert-error= f.semantic_errors :jelly
-        = f.input :jelly, :as => :select, :collection => (1..23)
-        .image-map
+          = f.input :jelly, :as => :select, :collection => (1..23)
           = render 'jelly', :jelly => @report.jelly, :css => (@report.errors[:jelly].any? ? 'jelly jelly-error':'jelly')
         %map{:name => "jelly-map"}
           - jelly_coords.each_with_index do |c,i|
             %area{:coords => c, :id => "jelly-#{i+1}", :shape => "rect"}
       = f.inputs :name => %q{Previous day's achievements} do
-        .alert.alert-info
+        .well
           Choose the three things you did on your previous working day that you are most proud of.
           %br
           Everyone achieves more than three things in a day - just pick the top three!
-        = f.semantic_fields_for :achievements do |achievement,i|
-          = achievement.input :text, :label => "#{i}"
+        = f.semantic_fields_for :achievements do |achievement|
+          = achievement.input :text, label: false
         - if @report.previous_day_report
-          .alert.alert-success
+          .well
             A reminder of your tasks from #{link_to date_text(@report.previous_day_report.today,@report.today), report_path(@report.previous_day_report)}:
             %ol.enumerate
               - @report.previous_day_report.tasks.each do |task|
                 %li= task.text
       = f.inputs :name => %q{Today's tasks} do
-        .alert.alert-info
+        .well
           Choose the three things you would most like to achieve today.
-        = f.semantic_fields_for :tasks do |task,i|
-          = task.input :text, :label => "#{i}"
+        = f.semantic_fields_for :tasks do |task|
+          = task.input :text, label: false
       = f.inputs :name => %q{Other} do
-        .alert.alert-info
+        .well
           If any of your tasks can be more easily achieved with help from someone else, here is the place to mention that.
         = f.input :help_needed, :input_html => {:rows => 3}
   .form-actions
-    = f.actions :submit, :cancel
+    = f.actions do
+      = f.action :submit, button_html: {class: 'btn btn-default'}
+      = f.action :cancel, label: 'Cancel', button_html: {class: 'btn btn-default'}
 

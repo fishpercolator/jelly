@@ -25,9 +25,12 @@ footer, .push {
   padding: 1em;
 }
 
-/*
+.inputs ol {
+  list-style-type: none;
+}
+
 ol.enumerate {
    margin-left: 30px !important;
    list-style-type: decimal !important;
 }
-*/
+
