@@ -118,7 +118,7 @@ class ReportsController < ApplicationController
   end
 
   def report_params
-    params.require(:report).permit(:excited, :help_needed, :jelly, :today, :previous_day, achievements_attributes: [:text], tasks_attributes: [:text])
+    params.require(:report).permit(:excited, :help_needed, :jelly, :today, :previous_day, achievements_attributes: [:id, :text, :_destroy], tasks_attributes: [:id, :text, :_destroy])
   end
   
 end

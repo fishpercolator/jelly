@@ -31,7 +31,7 @@
           Choose the three things you did on your previous working day that you are most proud of.
           %br
           Everyone achieves more than three things in a day - just pick the top three!
-        = f.semantic_fields_for :achievements do |achievement|
+        = f.fields_for :achievements do |achievement|
           = achievement.input :text, label: false
         - if @report.previous_day_report
           .well
@@ -42,7 +42,7 @@
       = f.inputs :name => %q{Today's tasks} do
         .well
           Choose the three things you would most like to achieve today.
-        = f.semantic_fields_for :tasks do |task|
+        = f.fields_for :tasks do |task|
           = task.input :text, label: false
       = f.inputs :name => %q{Other} do
         .well

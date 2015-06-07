@@ -5,10 +5,10 @@ class Report < ActiveRecord::Base
   belongs_to :user
   
   has_many :achievements, -> { order 'achievements.id' }
-  accepts_nested_attributes_for :achievements, :allow_destroy => true
+  accepts_nested_attributes_for :achievements, limit: 3, allow_destroy: true
 
   has_many :tasks, -> { order 'tasks.id' }
-  accepts_nested_attributes_for :tasks, :allow_destroy => true
+  accepts_nested_attributes_for :tasks, limit: 3, allow_destroy: true
   
   validates_presence_of :user, :excited, :jelly, :today, :previous_day
   validates_uniqueness_of :today, :scope => [:user_id]
