@@ -13,8 +13,8 @@
           = @report.user.name
       = f.inputs :name => 'Dates' do
         .alert.alert-info Please ensure the dates below are correct for this report.
-        = f.input :today, :as => :ui_date_picker
-        = f.input :previous_day, :as => :ui_date_picker
+        = f.input :today, as: :string, input_html: {class: 'datepicker', value: (f.object.today.try(:strftime, '%Y-%m-%d'))}
+        = f.input :previous_day, as: :string, input_html: {class: 'datepicker', value: (f.object.previous_day.try(:strftime, '%Y-%m-%d'))}
       = f.inputs :name => 'Headline' do
         .alert.alert-info
           This is a chance to tell the team what you're most excited about right now.

@@ -13,6 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.imagemapster
+//= require bootstrap-datepicker
 //= require bootstrap-sprockets
-//= require datepicker
 //= require_tree .

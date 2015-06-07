@@ -1,7 +1,8 @@
 @import "bootstrap-sprockets";
-@import "bootswatch/cosmo/variables";
+@import "bootswatch/flatly/variables";
 @import "bootstrap";
-@import "bootswatch/cosmo/bootswatch";
+@import "bootswatch/flatly/bootswatch";
 @import "formtastic-bootstrap";
 @import "devise_bootstrap_views";
+@import "bootstrap-datepicker3";
 @import "*";

@@ -6,12 +6,12 @@ class ReportsController < ApplicationController
   # GET /reports
   # GET /reports.json
   def index
-    if params[:date]
-      @date = Date.parse(params[:date])
+    if report_params[:date]
+      @date = Date.parse(report_params[:date])
       @reports = Report.where(:today => @date).order(:created_at)
       render :date_index and return
-    elsif params[:user]
-      @user = User.find(params[:user])
+    elsif report_params[:user]
+      @user = User.find(report_params[:user])
       @reports = Report.where(:user_id => @user).order('today desc')
       render :user_index and return
     else
@@ -33,11 +33,11 @@ class ReportsController < ApplicationController
   # GET /reports/1
   # GET /reports/1.json
   def show
-    @report = Report.find(params[:id])
+    @report = Report.find(report_params[:id])
     np = @report.next_prev
     @next = np[:next]; @prev = np[:prev]
 
-    if params[:present]
+    if report_params[:present]
       render :present, :layout => 'present' and return
     end
     
@@ -61,13 +61,13 @@ class ReportsController < ApplicationController
 
   # GET /reports/1/edit
   def edit
-    @report = Report.find(params[:id])
+    @report = Report.find(report_params[:id])
   end
 
   # POST /reports
   # POST /reports.json
   def create
-    @report = Report.new(params[:report])
+    @report = Report.new(report_params[:report])
     @report.user ||= current_user
 
     respond_to do |format|
@@ -84,11 +84,11 @@ class ReportsController < ApplicationController
   # PUT /reports/1
   # PUT /reports/1.json
   def update
-    @report = Report.find(params[:id])
+    @report = Report.find(report_params[:id])
     @report.user ||= current_user
 
     respond_to do |format|
-      if @report.update_attributes(params[:report])
+      if @report.update_attributes(report_params[:report])
         format.html { redirect_to @report, notice: 'Report was successfully updated.' }
         format.json { head :no_content }
       else
@@ -101,7 +101,7 @@ class ReportsController < ApplicationController
   # DELETE /reports/1
   # DELETE /reports/1.json
   def destroy
-    @report = Report.find(params[:id])
+    @report = Report.find(report_params[:id])
     @report.destroy
 
     respond_to do |format|
@@ -109,4 +109,11 @@ class ReportsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+
+  def report_params
+    params.require(:report).permit(:excited, :help_needed, :jelly, :today, :previous_day, achievements_attributes: [:text], tasks_attributes: [:text])
+  end
+  
 end

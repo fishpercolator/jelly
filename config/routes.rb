@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   match 'reports/by_day' => 'reports#by_day', via: [:get]
   resources :reports
 
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'registrations' }
   namespace :admin do
     resources :users
   end

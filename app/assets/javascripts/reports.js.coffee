@@ -19,5 +19,9 @@ $ ->
       when 39, 110, 32 # right, n, space
         window.location = $('#next').attr('href') if $('#next').attr('href')
 
-# Use ImageMapster to ensure image map is correct at any size
-$('#jelly-image').mapster()
+  # Use ImageMapster to ensure image map is correct at any size
+  $('#jelly-image').mapster()
+  
+  # Add datepickers to the appropriate fields
+  $('.datepicker').datepicker
+      format: 'yyyy-mm-dd'

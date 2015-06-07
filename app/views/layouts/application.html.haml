@@ -3,11 +3,8 @@
   %head
     = render 'layouts/head'
   %body
-    .navbar.navbar-fixed-top
-      .navbar-inner
-        .container
-          = render 'layouts/navbar'
-    .container
+    = render 'layouts/navbar'
+    .container-fluid
       = render 'layouts/alerts'
       = yield
       %footer
