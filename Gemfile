@@ -37,3 +37,8 @@ gem 'gravatar_image_tag', '~> 1.2.0'
 #gem 'jquery-ui-sass-rails', '~> 4.0.3.0'
 gem 'bootstrap-datepicker-rails', '~> 1.4.0'
 gem 'rails-reveal-js', '~> 2.6.1.2'
+
+# Gem used by Heroku to avoid plugin injection
+group :production do
+  gem 'rails_12factor'
+end
