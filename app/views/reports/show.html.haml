@@ -1,26 +1,31 @@
 - model_class = @report.class
 
 .row
-  .span12
+  .col-md-12
     %h1
       = gravatar_for @report.user
       = @report.user.name
       %small= @report.today
 .row
-  .span3
-    %a.btn{:id => 'prev', :class => @prev ? '':'disabled', :href => @prev ? url_for(@prev) : nil} Previous
-  .offset6.span3
-    %a.btn.pull-right{:id => 'next', :class => @next ? '':'disabled', :href => @next ? url_for(@next) : nil} Next
+  .col-md-3
+    %a.btn.btn-default{id: 'prev', class: @prev ? '':'disabled', href: @prev ? url_for(@prev) : nil, role: 'button'}
+      = glyph 'chevron-left'
+      Previous
+  .col-md-6
+  .col-md-3
+    %a.btn.btn-default.pull-right{id: 'next', class: @next ? '':'disabled', href: @next ? url_for(@next) : nil, role: 'button'}
+      Next
+      = glyph 'chevron-right'
   
 .row
-  .span6
+  .col-md-6
     = render 'jelly', :jelly => @report.jelly
-  .span6
+  .col-md-6
     = render 'report_text', :report => @report
 
 .form-actions
-  = link_to t('.back', :default => t("helpers.links.back")), reports_path, :class => 'btn'
+  = link_to t('.back', :default => t("helpers.links.back")), reports_path, :class => 'btn btn-default'
   - if can? :update, @report
-    = link_to t('.edit', :default => t("helpers.links.edit")), edit_report_path(@report), :class => 'btn'
+    = link_to t('.edit', :default => t("helpers.links.edit")), edit_report_path(@report), :class => 'btn btn-default'
   - if can? :destroy, @report
     = link_to t('.destroy', :default => t("helpers.links.destroy")), report_path(@report), :method => "delete", :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')), :class => 'btn btn-danger'
