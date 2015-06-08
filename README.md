@@ -1,5 +1,7 @@
 # Jelly
 
+![Codeship status](https://codeship.com/projects/16c733a0-f056-0132-a07e-0e935ee940a2/status?branch=master)
+
 Jelly is an application for managing the reports submitted for Jelly Baby Tree meetings.
 
 ## Jelly Baby Tree meetings
