@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
-$ ->
+report_ready = ->
   for n in [1..23]
     do (n) ->
       $("#jelly-#{n}").click -> 
@@ -25,3 +25,7 @@ $ ->
   # Add datepickers to the appropriate fields
   $('.datepicker').datepicker
       format: 'yyyy-mm-dd'
+
+$(document).ready(report_ready)
+$(document).on('page:load', report_ready)
+

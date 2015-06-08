@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(version: 20120809193933) do
   create_table "achievements", force: :cascade do |t|
     t.integer  "report_id"
     t.string   "text"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "achievements", ["report_id"], name: "index_achievements_on_report_id", using: :btree
@@ -29,8 +29,8 @@ ActiveRecord::Schema.define(version: 20120809193933) do
     t.integer  "user_id"
     t.integer  "jelly"
     t.text     "help_needed"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.date     "today"
     t.date     "previous_day"
     t.string   "excited"
@@ -42,8 +42,8 @@ ActiveRecord::Schema.define(version: 20120809193933) do
     t.string   "name"
     t.integer  "resource_id"
     t.string   "resource_type"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id", using: :btree
@@ -52,8 +52,8 @@ ActiveRecord::Schema.define(version: 20120809193933) do
   create_table "tasks", force: :cascade do |t|
     t.integer  "report_id"
     t.string   "text"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "tasks", ["report_id"], name: "index_tasks_on_report_id", using: :btree
@@ -69,8 +69,8 @@ ActiveRecord::Schema.define(version: 20120809193933) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "name"
   end
 
