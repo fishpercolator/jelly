@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/fishpercolator/rails-reveal-js.git
+  revision: 669541a3fa22242bc27cc46c586316e680c10094
+  specs:
+    rails-reveal-js (3.1.0)
+      railties (~> 4.0)
+
+GIT
   remote: git://github.com/mjbellantoni/formtastic-bootstrap.git
   revision: 8134e3fd9af1115ee4fa019d6ef994bdc0045099
   specs:
@@ -134,8 +141,6 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.2)
       loofah (~> 2.0)
-    rails-reveal-js (2.6.1.2)
-      railties (~> 4.0)
     rails_12factor (0.0.3)
       rails_serve_static_assets
       rails_stdout_logging
@@ -202,7 +207,7 @@ DEPENDENCIES
   pg
   puma (~> 2.11)
   rails (= 4.2.1)
-  rails-reveal-js (~> 2.6.1.2)
+  rails-reveal-js!
   rails_12factor
   rolify (~> 4.0.0)
   sass-rails (~> 5.0)

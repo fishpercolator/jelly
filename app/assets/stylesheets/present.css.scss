@@ -1,21 +1,27 @@
 @import "reveal";
-@import "reveal-theme/simple";
+@import "reveal-theme/white";
 
 .slides {
+  margin: {
+    top: 1em;
+    bottom: 0;
+  }
+
+  .left {
+    float: left;
+    width: 40%;
+    text-align: left;
+  }
 
   h2.title {
     text-align: left;
+    margin-bottom: 0 !important;
 
     img.gravatar {
       height: 100% !important;
       margin: 0px !important;
       border: 1px solid black;
     }
-  }
-
-  img.jelly {
-    width: 40%;
-    float: left;
   }
 
   .report-text {
@@ -26,10 +32,20 @@
 
     h2 {
       margin-top: 0.5em;
+      margin-bottom: 0.2em;
+    }
+
+    p {
+      margin-top: 0;
     }
 
     li {
       line-height: 1.2em;
+      margin-left: 0.5em;
+    }
+
+    p, li {
+      font-size: 1.2em;
     }
   }
 

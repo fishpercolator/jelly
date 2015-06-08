@@ -5,10 +5,11 @@
   %h2= @date
 - @reports.each do |report|
   %section
-    %h2.title
-      = gravatar_for report.user, 64
-      = report.user.name
-    = render 'jelly', jelly: report.jelly
+    .left
+      %h2.title
+        = gravatar_for report.user, 64
+        = report.user.name
+      = render 'jelly', jelly: report.jelly
     = render 'report_text', report: report
 %section
   %h1 The end

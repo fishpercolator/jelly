@@ -36,7 +36,7 @@ gem 'mail', '~> 2.6.3'
 gem 'gravatar_image_tag', '~> 1.2.0'
 #gem 'jquery-ui-sass-rails', '~> 4.0.3.0'
 gem 'bootstrap-datepicker-rails', '~> 1.4.0'
-gem 'rails-reveal-js', '~> 2.6.1.2'
+gem 'rails-reveal-js', github: 'fishpercolator/rails-reveal-js'
 
 # Gem used by Heroku to avoid plugin injection
 group :production do
