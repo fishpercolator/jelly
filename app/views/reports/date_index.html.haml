@@ -13,7 +13,7 @@
         Present
   .row
     .col-md-12
-      %ul
+      %ul#reports-index
         - @reports.each do |report|
           %li
             = gravatar_for report.user, 16

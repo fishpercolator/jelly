@@ -25,6 +25,12 @@ Feature: Report management
     And I should see the text "Yesterday I achieved: Tested something Tested something else Tested something more"
     And I should see jelly baby 5
 
+  Scenario: Today's index
+    Given I am signed in
+    And There are 6 users with reports
+    When I visit today's reports
+    Then I see 6 reports
+
   @javascript
   Scenario: Datepicker works
     Given I am signed in

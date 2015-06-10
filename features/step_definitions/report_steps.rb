@@ -53,3 +53,14 @@ Then /^"(.*)" shows the (\d+).. of this month$/ do |field, day|
   date = Date.new(Date.today.year, Date.today.month, day.to_i)
   expect(find_field(field).value).to eq(date.to_s(:db))
 end
+1
+Given /^There are (\d+) users with reports$/ do |n|
+  n.to_i.times do
+    user = create(:user)
+    create(:report, user: user)
+  end
+end
+
+Then /^I see (\d+) reports$/ do |n|
+  expect(page).to have_css('#reports-index li', count: n.to_i)
+end
