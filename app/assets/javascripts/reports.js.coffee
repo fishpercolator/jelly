@@ -12,12 +12,6 @@ report_ready = ->
   $('#report_jelly').change ->
     n = $(this).val()
     $("#jelly-#{n}").click()
-  $(document).keypress (event) ->
-    switch event.which
-      when 37, 98, 112 # left, b, p
-        window.location = $('#prev').attr('href') if $('#prev').attr('href')
-      when 39, 110, 32 # right, n, space
-        window.location = $('#next').attr('href') if $('#next').attr('href')
 
   # Use ImageMapster to ensure image map is correct at any size
   $('#jelly-image').mapster()
