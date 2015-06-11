@@ -29,16 +29,16 @@ Feature: Report management
     Given I am signed in
     And There are 6 users with reports
     When I visit today's reports
-    Then I see 6 reports
+    Then I should see 6 reports
 
   @javascript
   Scenario: Datepicker works
     Given I am signed in
     When I visit the new report page
     And I click the field "report_previous_day"
-    Then a datepicker appears
+    Then a datepicker should appear
     When I click on date 15
-    Then "report_previous_day" shows the 15th of this month
+    Then "report_previous_day" should show the 15th of this month
 
   @javascript
   Scenario: Jelly changing works

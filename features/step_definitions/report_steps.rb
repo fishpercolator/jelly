@@ -45,11 +45,11 @@ Then /^I should see jelly baby (\d+)$/ do |id|
     to match(%r{/assets/jelly_babies/#{id}.*\.png})
 end
 
-Then /^a datepicker appears$/ do
+Then /^a datepicker should appear$/ do
   expect(page).to have_css(".datepicker")
 end
 
-Then /^"(.*)" shows the (\d+).. of this month$/ do |field, day|
+Then /^"(.*)" should show the (\d+).. of this month$/ do |field, day|
   date = Date.new(Date.today.year, Date.today.month, day.to_i)
   expect(find_field(field).value).to eq(date.to_s(:db))
 end
@@ -61,6 +61,6 @@ Given /^There are (\d+) users with reports$/ do |n|
   end
 end
 
-Then /^I see (\d+) reports$/ do |n|
+Then /^I should see (\d+) reports$/ do |n|
   expect(page).to have_css('#reports-index li', count: n.to_i)
 end
