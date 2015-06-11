@@ -70,7 +70,45 @@ Then /^I should see a presentation$/ do
   expect(page).not_to have_css('nav')
 end
 
-Then(/^there should be (\d+) reports in the presentation$/) do |n|
+Then /^there should be (\d+) reports in the presentation$/ do |n|
   # Add 2 for the title and end slides
   expect(page).to have_css('div.slides section', count: n.to_i + 2)
+end
+
+Given /^I have (\d+) past reports?$/ do |n|
+  n.to_i.times do |i|
+    create(:report, user: @current_user, today: Date.today - (i-1))
+  end
+end
+
+When /^I visit my reports page$/ do
+  click_link "My reports"
+end
+
+When /^I visit my most recent report$/ do
+  report = @current_user.reports.order('today DESC').first
+  visit "/reports/#{report.id}"
+end
+
+Then /^I should see (\d+) achievements and (\d+) tasks$/ do |a_n, t_n|
+  expect(page).to have_css('ol#achievements li', count: a_n.to_i)
+  expect(page).to have_css('ol#tasks li', count: t_n.to_i)
+end
+
+When /^I try to edit another user's report$/ do
+  report = Report.where.not(user: @current_user).first
+  visit "/reports/#{report.id}/edit"
+end
+
+Given /^there are (\d+) reports today and (\d+) reports yesterday$/ do |t,y|
+  t.to_i.times { create(:report, today: Date.today) }
+  y.to_i.times { create(:report, today: Date.yesterday) }
+end
+
+When /^I visit the all reports page$/ do
+  visit '/reports'
+end
+
+Then /^I should see (today|yesterday)'s date marked with (\d+)$/ do |date_method, number|
+  expect(page).to have_text("#{Date.send(date_method).to_s} (#{number})")
 end

@@ -25,6 +25,27 @@ Feature: Report management
     And I should see the text "Yesterday I achieved: Tested something Tested something else Tested something more"
     And I should see jelly baby 5
 
+  Scenario: Can edit report
+    Given I am signed in
+    And I have 1 past report
+    When I visit my most recent report
+    And I click the button "Edit"
+    And I fill in these details:
+      | field          | value     |
+      | report_excited | New value |
+    And I select jelly baby 10
+    And I click the button "Update Report"
+    Then I should be on the show report page
+    And I should see the text "I am most excited about: New value"
+    And I should see jelly baby 10
+    And I should see 3 achievements and 3 tasks
+
+  Scenario: Cannot edit someone else's report
+    Given I am signed in
+    And there are 2 users with reports
+    When I try to edit another user's report
+    Then I should see an error
+
   Scenario: Today's index
     Given I am signed in
     And there are 6 users with reports
@@ -54,3 +75,16 @@ Feature: Report management
     When I visit the new report page
     And I select jelly baby 13
     Then I should see jelly baby 13
+
+  Scenario: User's own reports
+    Given I am signed in
+    And I have 15 past reports
+    When I visit my reports page
+    Then I should see 15 reports
+ 
+  Scenario: Reports by day
+    Given I am signed in
+    And there are 6 reports today and 8 reports yesterday
+    When I visit the all reports page
+    Then I should see today's date marked with 6
+    And I should see yesterday's date marked with 8

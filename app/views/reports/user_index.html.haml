@@ -8,7 +8,7 @@
       #{@user.name}'s reports
 .row
   .col-md-12
-    %ul
+    %ul#reports-index
       - @reports.each do |report|
         %li
           = link_to report.today, report_path(report)

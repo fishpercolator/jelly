@@ -1,14 +1,14 @@
 .report-text
   %h2 I am most excited about:
-  %p= report.excited
+  %p#excited= report.excited
   %h2= "#{date_text(report.previous_day,report.today).titleize} I achieved:"
-  %ol
+  %ol#achievements
     - report.achievements.each do |achievement|
       %li= achievement.text
   %h2= "Today I plan to achieve:"
-  %ol
+  %ol#tasks
     - report.tasks.each do |task|
       %li= task.text
   %h2 Who can help me?
-  = simple_format report.help_needed
+  #help_needed= simple_format report.help_needed
 

@@ -9,6 +9,7 @@ FactoryGirl.define do
   end
 
   factory :report do
+    user { create(:user) }
     today { Date.today }
     previous_day { Faker::Date.backward(3) }
     excited { Faker::Hacker.say_something_smart }
