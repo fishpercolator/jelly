@@ -21,7 +21,7 @@ When /^I fill in these details:$/ do |table|
 end
 
 When /^I click the button "(.*)"$/ do |button|
-  click_button button
+  find(:link_or_button, button).click
 end
 
 When /^I click the field "(.*)"$/ do |field|
@@ -53,8 +53,8 @@ Then /^"(.*)" should show the (\d+).. of this month$/ do |field, day|
   date = Date.new(Date.today.year, Date.today.month, day.to_i)
   expect(find_field(field).value).to eq(date.to_s(:db))
 end
-1
-Given /^There are (\d+) users with reports$/ do |n|
+
+Given /^there are (\d+) users with reports$/ do |n|
   n.to_i.times do
     user = create(:user)
     create(:report, user: user)
@@ -63,4 +63,14 @@ end
 
 Then /^I should see (\d+) reports$/ do |n|
   expect(page).to have_css('#reports-index li', count: n.to_i)
+end
+
+Then /^I should see a presentation$/ do
+  expect(page).to have_css('div.slides')
+  expect(page).not_to have_css('nav')
+end
+
+Then(/^there should be (\d+) reports in the presentation$/) do |n|
+  # Add 2 for the title and end slides
+  expect(page).to have_css('div.slides section', count: n.to_i + 2)
 end

@@ -27,9 +27,17 @@ Feature: Report management
 
   Scenario: Today's index
     Given I am signed in
-    And There are 6 users with reports
+    And there are 6 users with reports
     When I visit today's reports
     Then I should see 6 reports
+
+  Scenario: Presentation mode
+    Given I am signed in
+    And there are 6 users with reports
+    When I visit today's reports
+    And I click the button "present"
+    Then I should see a presentation
+    And there should be 6 reports in the presentation
 
   @javascript
   Scenario: Datepicker works
