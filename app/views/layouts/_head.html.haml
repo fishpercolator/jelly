@@ -4,6 +4,7 @@
 %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
 %title= content_for?(:title) ? "#{yield(:title)} - Jelly" : "Jelly"
 = csrf_meta_tags
+= favicon_link_tag '/favicon.ico'
 = stylesheet_link_tag app, media: 'all', 'data-turbolinks-track' => true
 = javascript_include_tag app, 'data-turbolinks-track' => true
 %link{:href => "images/favicon.ico", :rel => "shortcut icon"}/

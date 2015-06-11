@@ -6,7 +6,7 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      = link_to 'Jelly', root_url, class: 'navbar-brand'
+      = link_to image_tag('corner-logo.png', alt: 'Jelly', class: 'corner-logo'), root_url, class: 'navbar-brand'
     .collapse.navbar-collapse#navbar-content
       %ul.nav.navbar-nav
         - if current_user
