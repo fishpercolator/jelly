@@ -2,18 +2,34 @@
 @import "reveal-theme/white";
 
 .slides {
-  margin: {
-    top: 1em;
-    bottom: 0;
+
+  section.report {
+    padding: 0;
+    bottom: 0px;
+    overflow-y: auto !important;
+    height: 100%;
   }
+
+  section.report::-webkit-scrollbar { width: 0 !important; }
 
   .left {
     float: left;
-    width: 40%;
-    text-align: right;
+    width: 45%;
+    text-align: left;
+
+    img {
+      margin-bottom: 0;
+    }
+  }
+
+  .right {
+    float: right;
+    width: 53%;
+    margin-left: 2%;
   }
 
   h2.title {
+    text-align: left;
     margin-bottom: 0 !important;
 
     img.gravatar {
@@ -24,8 +40,6 @@
   }
 
   .report-text {
-    float: right;
-    width: 55%;
     text-align: left;
     font-size: 0.5em;
 
