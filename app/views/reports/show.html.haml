@@ -7,12 +7,11 @@
       = @report.user.name
       %small= @report.today
 .row
-  .col-md-3
+  .col-xs-6
     %a.btn.btn-default{id: 'prev', class: @prev ? '':'disabled', href: @prev ? url_for(@prev) : nil, role: 'button'}
       = glyph 'chevron-left'
       Previous
-  .col-md-6
-  .col-md-3
+  .col-xs-6
     %a.btn.btn-default.pull-right{id: 'next', class: @next ? '':'disabled', href: @next ? url_for(@next) : nil, role: 'button'}
       Next
       = glyph 'chevron-right'

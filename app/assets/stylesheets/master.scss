@@ -32,3 +32,16 @@ a.navbar-brand {
   }
   margin-left: 0 !important;
 }
+
+.signin-form {
+  margin-bottom: 1em;
+  .input-group {
+    margin-top: 1em;
+  }
+  .checkbox {
+    label label {
+      padding-left: 0;
+    }
+  }
+}
+
