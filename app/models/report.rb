@@ -15,10 +15,11 @@ class Report < ActiveRecord::Base
   
   # Support roles
   resourcify
-  
-  # Get a count of reports for each day, ordered by days in reverse
-  def self.day_counts
-    self.select('today, count(*) as c').group(:today).order('today desc')
+
+  extend SimpleCalendar
+  has_calendar
+  def simple_calendar_start_time
+    self.today
   end
   
   # Set dates on object creation

@@ -29,7 +29,7 @@ class ReportsController < ApplicationController
   # GET /reports/by_day
   def by_day
     authorize! :read, Report
-    @days = Report.day_counts
+    @reports = Report.all
   end
 
   # GET /reports/1

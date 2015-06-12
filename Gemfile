@@ -39,6 +39,7 @@ gem 'bootstrap-datepicker-rails', '~> 1.4.0'
 gem 'rails-reveal-js', github: 'fishpercolator/rails-reveal-js'
 gem 'animate.css-rails', '~> 3.2.0'
 gem 'redcarpet', '~> 3.3.1'
+gem 'simple_calendar', '~> 1.1.0'
 
 # Gem used by Heroku to avoid plugin injection
 group :production do

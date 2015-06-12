@@ -6,9 +6,10 @@
     %h1 All reports
 
 .row
-  .col-md-12
-    %ul
-      - @days.each do |d|
-        %li
-          = link_to d.today, reports_path(:date => d.today.to_s(:db))
-          = "(#{d.c})"
+  .col-md-12#calendar
+    = month_calendar events: @reports, table: {class: 'table table-bordered'} do |date, reports|
+      .inner
+        %b= date.strftime("%d")
+        - if reports.count > 0
+          .link
+            = link_to pluralize(reports.count, 'report'), reports_path(date: date.to_s(:db))

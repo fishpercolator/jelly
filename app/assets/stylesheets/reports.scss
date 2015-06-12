@@ -41,6 +41,30 @@
       margin-top: 1em;
     }
 
+  #calendar {
+    header.calendar-header {
+      text-align: center;
+      font: {
+        size: 1.5em;
+        weight: bold;
+      }
+      margin-bottom: 1em;
+    }
+    th {
+      background-color: $brand-primary;
+      color: #fff;
+    }
+    td {
+      width: calc(100%/7);
+      height: 4em;
+    }
+    .link {
+      margin-left: 1em;
+      a {
+        text-decoration: none;
+      }
+    }
+  }
 }
 
 

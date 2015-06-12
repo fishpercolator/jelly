@@ -110,5 +110,5 @@ When /^I visit the all reports page$/ do
 end
 
 Then /^I should see (today|yesterday)'s date marked with (\d+)$/ do |date_method, number|
-  expect(page).to have_text("#{Date.send(date_method).to_s} (#{number})")
+  expect(page).to have_text("#{Date.send(date_method).strftime('%d')} #{number} report")
 end
