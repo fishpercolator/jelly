@@ -13,5 +13,9 @@
         history: true,
         center: true,
         transition: 'slide',
-        theme: 'white'
+        theme: 'white',
+        zoomKey: 'ctrl',
+        dependencies: [
+          { src: '#{javascript_path('zoom')}', async: true }
+        ]  
       });

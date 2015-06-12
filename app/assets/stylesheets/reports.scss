@@ -23,6 +23,15 @@
     .image-map {
 	margin-left: 240px;
     }
+
+    .inputs ol {
+      list-style-type: none;
+    }
+
+    ol.enumerate {
+      margin-left: 30px !important;
+      list-style-type: decimal !important;
+    }
 }
 
 

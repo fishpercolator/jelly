@@ -51,6 +51,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     addressable (2.3.8)
+    animate.css-rails (3.2.0)
     arel (6.0.0)
     autoprefixer-rails (5.2.0)
       execjs
@@ -269,6 +270,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  animate.css-rails
   bootstrap-datepicker-rails (~> 1.4.0)
   bootstrap-sass (~> 3.3.4)
   bootswatch-rails (~> 3.2.4)

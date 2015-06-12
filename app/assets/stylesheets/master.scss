@@ -25,21 +25,10 @@ footer, .push {
   padding: 1em;
 }
 
-.inputs ol {
-  list-style-type: none;
-}
-
-ol.enumerate {
-   margin-left: 30px !important;
-   list-style-type: decimal !important;
-}
-
-.corner-logo {
-  max-height: 120%;
-  margin-left: 1em;
-}
-
-h1 small {
-  font-size: 50%;
-  margin-left: 0.5em;
+a.navbar-brand {
+  font: {
+    family: 'Chewy', cursive;
+    size: 1.8em;
+  }
+  margin-left: 0 !important;
 }

@@ -1,24 +1,24 @@
 .jumbotron
   %h1
-    = image_tag 'logo.png', alt: 'Jelly'
+    %span.logo.animated.bounce Jelly
     %small Let's get daily meetings down to minutes.
 .row
   - if current_user
     .col-md-6
       .well
-        %h3
+        %h3.bigbutton
           = link_to new_report_path do
             = glyph 'file'
             Write today's report
     .col-md-6
       .well
-        %h3
+        %h3.bigbutton
           = link_to reports_path(:date => Date.today.to_s(:db)) do
             = glyph 'eye-open'
             Show today's meeting slides
   - else
     .col-md-12
-      .well
+      .well#signin
         %h3 Sign up or sign in to begin
         = render "devise/sessions/form"
         = render "devise/shared/links"
