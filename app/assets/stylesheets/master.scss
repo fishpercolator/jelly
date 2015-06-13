@@ -3,6 +3,14 @@ img.gravatar {
   border-radius: $radius;
   -moz-border-radius: $radius;
   -webkit-border-radius: $radius;
+  margin: 0 0.5em 0 0;
+  height: 1em;
+  width: 1em;
+  vertical-align: middle;
+}
+
+span.username {
+  vertical-align: middle;
 }
 
 * {

@@ -4,13 +4,13 @@
     %small Let's get daily meetings down to minutes.
 .row
   - if current_user
-    .col-md-6
+    .col-md-6.col-xs-12
       .well
         %h3.bigbutton
           = link_to new_report_path do
             = glyph 'file'
             Write today's report
-    .col-md-6
+    .col-md-6.col-xs-12
       .well
         %h3.bigbutton
           = link_to reports_path(:date => Date.today) do

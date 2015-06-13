@@ -37,7 +37,7 @@
           %a.dropdown-toggle{data: {toggle: 'dropdown'}, role: 'button', aria: {expanded: false}}
             - if user_signed_in?
               = gravatar_for current_user, 16
-              = current_user.name
+              %span.username= current_user.name
             - else
               Not signed in
             %b.caret
