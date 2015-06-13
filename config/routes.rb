@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  match 'reports/by_day' => 'reports#by_day', via: [:get]
   match 'reports/present' => 'reports#present', via: [:get]
   resources :reports
 

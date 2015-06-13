@@ -14,25 +14,19 @@ class ReportsController < ApplicationController
       render :date_index and return
     elsif params[:user]
       @user = User.find(params[:user])
-      @reports = Report.where(:user_id => @user).order('today desc')
+      # Just get the relevant reports for this view of the calendar
+      range = SimpleCalendar::MonthCalendar.new(self).date_range
+      @reports = Report.where(user_id: @user, today: range)
       render :user_index and return
     else
-      redirect_to :action => 'by_day' and return
+      range = SimpleCalendar::MonthCalendar.new(self).date_range
+      @reports = Report.where(today: range)
     end
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @reports }
     end
-  end
-  
-  # GET /reports/by_day
-  def by_day
-    authorize! :read, Report
-    
-    # Just get the relevant reports for this view of the calendar
-    range = SimpleCalendar::MonthCalendar.new(self).date_range
-    @reports = Report.where(today: range)
   end
 
   # GET /reports/1

@@ -7,9 +7,13 @@
       = gravatar_for @user
       #{@user.name}'s reports
 .row
-  .col-md-12
-    %ul#reports-index
-      - @reports.each do |report|
-        %li
-          = link_to report.today.to_s(:display), report_path(report)
-
+  .col-md-12#calendar
+    = month_calendar events: @reports, 
+        table: {class: 'table table-bordered'},
+        next_link: ->(param, date_range) { link_to raw("&raquo;"), {param => date_range.last.next_day, user: @user} },
+        previous_link: ->(param, date_range) { link_to raw("&laquo;"), {param => date_range.first.prev_day, user: @user} } do |date, reports|
+      .inner
+        %b= date.strftime("%d")
+        - if reports.first
+          .link
+            = link_to 'report', report_path(reports.first)
