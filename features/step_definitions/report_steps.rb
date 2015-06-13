@@ -65,6 +65,10 @@ Then /^I should see (\d+) reports$/ do |n|
   expect(page).to have_css('#reports-index li', count: n.to_i)
 end
 
+Then /^I should see (\d+) links on a calendar$/ do |n|
+  expect(page).to have_css('#calendar td a', count: n.to_i)
+end
+
 Then /^I should see a presentation$/ do
   expect(page).to have_css('div.slides')
   expect(page).not_to have_css('nav')
@@ -77,7 +81,13 @@ end
 
 Given /^I have (\d+) past reports?$/ do |n|
   n.to_i.times do |i|
-    create(:report, user: @current_user, today: Date.today - (i-1))
+    create(:report, user: @current_user, today: Date.today - i)
+  end
+end
+
+Given /^I have (\d+) reports this month?$/ do |n|
+  n.to_i.times do |i|
+    create(:report, user: @current_user, today: Date.today.end_of_month - i)
   end
 end
 

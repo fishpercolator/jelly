@@ -78,9 +78,9 @@ Feature: Report management
 
   Scenario: User's own reports
     Given I am signed in
-    And I have 15 past reports
+    And I have 15 reports this month
     When I visit my reports page
-    Then I should see 15 reports
+    Then I should see 15 links on a calendar
  
   Scenario: Reports by day
     Given I am signed in
