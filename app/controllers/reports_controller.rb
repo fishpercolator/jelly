@@ -29,7 +29,10 @@ class ReportsController < ApplicationController
   # GET /reports/by_day
   def by_day
     authorize! :read, Report
-    @reports = Report.all
+    
+    # Just get the relevant reports for this view of the calendar
+    range = SimpleCalendar::MonthCalendar.new(self).date_range
+    @reports = Report.where(today: range)
   end
 
   # GET /reports/1
