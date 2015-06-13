@@ -3,12 +3,12 @@
 
 .row
   .col-md-12
-    %h1 Reports for #{@date}
+    %h1 Reports for #{@date.to_s :display}
     
 - if @reports.any?
   .row
     .col-md-12
-      = link_to reports_present_path(date: @date.to_s(:db)), class: 'btn btn-primary', id: 'present' do
+      = link_to reports_present_path(date: @date), class: 'btn btn-primary', id: 'present' do
         = glyph 'eye-open'
         Present
   .row

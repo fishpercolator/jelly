@@ -13,7 +13,7 @@
     .col-md-6
       .well
         %h3.bigbutton
-          = link_to reports_path(:date => Date.today.to_s(:db)) do
+          = link_to reports_path(:date => Date.today) do
             = glyph 'eye-open'
             Show today's meeting slides
   - else

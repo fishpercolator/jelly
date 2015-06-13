@@ -11,5 +11,5 @@
     %ul#reports-index
       - @reports.each do |report|
         %li
-          = link_to report.today, report_path(report)
+          = link_to report.today.to_s(:display), report_path(report)
 

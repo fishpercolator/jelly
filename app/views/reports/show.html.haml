@@ -5,7 +5,7 @@
     %h1
       = gravatar_for @report.user
       = @report.user.name
-      %small= @report.today
+      %small= @report.today.to_s(:display)
 .row
   .col-xs-6
     %a.btn.btn-default{id: 'prev', class: @prev ? '':'disabled', href: @prev ? url_for(@prev) : nil, role: 'button'}

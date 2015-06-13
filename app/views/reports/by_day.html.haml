@@ -12,4 +12,4 @@
         %b= date.strftime("%d")
         - if reports.count > 0
           .link
-            = link_to pluralize(reports.count, 'report'), reports_path(date: date.to_s(:db))
+            = link_to pluralize(reports.count, 'report'), reports_path(date: date)

@@ -1,5 +1,5 @@
 When /^I visit today's reports$/ do
-  visit '/reports?date='+Date.today.to_s(:db)
+  visit "/reports?date=#{Date.today}"
 end
 
 When /^I visit the new report page$/ do
@@ -7,7 +7,7 @@ When /^I visit the new report page$/ do
 end
 
 When /^I fill in yesterday as the previous working day$/ do
-  fill_in 'report_previous_day', with: Date.yesterday.to_s(:db)
+  fill_in 'report_previous_day', with: Date.yesterday
 end
 
 When /^I select jelly baby (\d+)$/ do |id|
@@ -51,7 +51,7 @@ end
 
 Then /^"(.*)" should show the (\d+).. of this month$/ do |field, day|
   date = Date.new(Date.today.year, Date.today.month, day.to_i)
-  expect(find_field(field).value).to eq(date.to_s(:db))
+  expect(find_field(field).value).to eq(date.to_s :db)
 end
 
 Given /^there are (\d+) users with reports$/ do |n|

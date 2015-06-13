@@ -17,10 +17,7 @@ class Report < ActiveRecord::Base
   resourcify
 
   extend SimpleCalendar
-  has_calendar
-  def simple_calendar_start_time
-    self.today
-  end
+  has_calendar attribute: :today
   
   # Set dates on object creation
   after_initialize do

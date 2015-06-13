@@ -58,8 +58,23 @@
       width: calc(100%/7);
       height: 4em;
     }
+    td.prev-month, td.next-month {
+      color: $gray-light;
+      a {
+        color: $gray-light;
+      }
+    }
+    td.wday-6, td.wday-0 {
+      background-color: $gray-lighter;
+      border-color: #fff;
+    } 
+    td.today {
+      background-color: $brand-info;
+      color: #fff;
+    }
     .link {
       margin-left: 1em;
+      white-space: nowrap;
       a {
         text-decoration: none;
       }
