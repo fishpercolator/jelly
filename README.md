@@ -105,8 +105,9 @@ That's it - you're ready to go!
 
 ### Docker
 
-Jelly is available for deployment direct from Docker Hub. Please see
-the instructions on
+Jelly is available for deployment direct from Docker Hub.
+
+Please see the instructions on
 [its registry page](https://registry.hub.docker.com/u/fishpercolator/jelly/).
 
 ## Development environment
