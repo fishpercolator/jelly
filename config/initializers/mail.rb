@@ -5,7 +5,7 @@ require 'development_mail_interceptor'
 # of the app
 ActionMailer::Base.smtp_settings = {
   :address              => ENV['SMTP_SERVER'] || ENV['POSTMARK_SMTP_SERVER'],
-  :port                 => 25 || ENV['SMTP_PORT'],
+  :port                 => ENV['SMTP_PORT'] || 25,
   :domain               => ENV['SMTP_DOMAIN'] || ENV['APPHOST'],
   :user_name            => ENV['SMTP_USER'] || ENV['POSTMARK_API_TOKEN'],
   :password             => ENV['SMTP_PASSWORD'] || ENV['POSTMARK_API_TOKEN'],
