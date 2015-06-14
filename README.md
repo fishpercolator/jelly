@@ -48,7 +48,7 @@ RAILS_ENV       | Set the app to development or production mode (set automatical
 SECRET_KEY_BASE | Set a secret for signing sessions (set automatically on Heroku).
 DATABASE_URL    | The [URL](http://edgeguides.rubyonrails.org/configuring.html#configuring-a-database) for your PostgreSQL database (set automatically on Heroku).
 APPHOST         | Set to the domain of your application (for including links in emails).
-EMAIL_SENDER    | The email address that "forgot password" emails will be sent from. Defaults to jelly@${APPHOST}. (See notes below if you're using Postmark.)
+EMAIL_SENDER    | The email address that "forgot password" emails will be sent from. Defaults to `jelly@${APPHOST}`. (See notes below if you're using Postmark.)
 SMTP_SERVER     | SMTP server name (not needed if using Postmark).
 SMTP_PORT       | SMTP server port if not 25 (not needed if using Postmark).
 SMTP_DOMAIN     | SMTP authentication domain (not needed if using Postmark).
@@ -60,7 +60,48 @@ SMTP_AUTH       | SMTP authentication method if not `cram_md5`.
 
 If you just want to deploy Jelly directly to the cloud, we recommend Heroku.
 
-TODO
+The quickest deployment uses the
+[Heroku Postgres](https://addons.heroku.com/heroku-postgresql) and
+[Postmark](https://addons.heroku.com/postmark) addons.
+
+The following steps can be done with the Heroku web interface, but for
+the purpose of illustration we're using the
+[Heroku Toolbelt](https://toolbelt.heroku.com/).
+
+```sh
+# Check out the repo
+git clone https://github.com/fishpercolator/jelly.git
+cd jelly
+
+# Create an app on Heroku (myjelly is an example name)
+heroku apps:create myjelly
+
+# Deploy the app codebase to Heroku
+#   NOTE: This step automatically sets the RAILS_ENV, SECRET_KEY_BASE and
+#   DATABASE_URL parameters
+git push heroku master
+
+# Create the database
+#   NOTE: This step automatically installs the Postgres addon
+heroku run rake db:migrate
+
+# Set the other variables you need, for example:
+heroku config:set APPHOST=jelly.fishpercolator.co.uk \
+                  EMAIL_SENDER=jelly@fishpercolator.co.uk
+
+# Add a domain alias for your APPHOST (if it's not appname.herokuapp.com)
+heroku domains:add jelly.fishpercolator.co.uk
+
+# (Optional) Install the Postmark addon.
+#  NOTE: If you don't do this, be sure to set the SMTP_* variables
+heroku addons:create postmark:10k
+
+# Open the Postmark web UI: you need to add your $EMAIL_SENDER as a
+# sender signature before Postmark will deliver mail for you
+heroku addons:open postmark
+```
+
+That's it - you're ready to go!
 
 ### Docker
 
