@@ -1,9 +1,12 @@
 ![Jelly](app/assets/images/logo-text.png)
 
-Let's get daily meetings down to minutes.
+**Let's get daily meetings down to minutes.**
 
 Jelly is an application for managing the reports submitted for Jelly
 Baby Tree meetings.
+
+Read more about Jelly and this style of meeting at
+<https://fishpercolator.co.uk/jelly/>.
 
 ![Codeship status](https://codeship.com/projects/16c733a0-f056-0132-a07e-0e935ee940a2/status?branch=master)
 
@@ -28,94 +31,50 @@ This web-based app allows the team members to enter their slides before the meet
 
 ## Installation
 
-### Local installation
+Jelly follows the [Twelve-Factor App](http://12factor.net/)
+specification as closely as possible, which makes it easy to deploy on
+any hosting platform. It has been extensively tested with
+[Heroku](https://www.heroku.com/) and
+[Docker](https://www.docker.com/).
 
-This is a standard Rails application based on PostgreSQL. Make sure you have
-the following installed:
+### Configuration
 
-* Ruby 1.9 or above
-* Rails 3.2 or above
-* Bundler (gem install bundler)
-* PostgreSQL server
-* A Gmail or Google Apps Mail account (used to send email)
+Jelly is configured using environment variables. The variables you
+need to know are:
 
-Next, install all the gem dependencies:
+Variable name   | Purpose
+----------------|---------
+RAILS_ENV       | Set the app to development or production mode (set automatically on Heroku).
+SECRET_KEY_BASE | Set a secret for signing sessions (set automatically on Heroku).
+DATABASE_URL    | The [URL](http://edgeguides.rubyonrails.org/configuring.html#configuring-a-database) for your PostgreSQL database (set automatically on Heroku).
+APPHOST         | Set to the domain of your application (for including links in emails).
+EMAIL_SENDER    | The email address that "forgot password" emails will be sent from. Defaults to jelly@${APPHOST}. (See notes below if you're using Postmark.)
+SMTP_SERVER     | SMTP server name (not needed if using Postmark).
+SMTP_PORT       | SMTP server port if not 25 (not needed if using Postmark).
+SMTP_DOMAIN     | SMTP authentication domain (not needed if using Postmark).
+SMTP_USER       | SMTP authentication user (not needed if using Postmark).
+SMTP_PASSWORD   | SMTP authentication password (not needed if using Postmark).
+SMTP_AUTH       | SMTP authentication method if not `cram_md5`.
 
-```console
-$ bundle install
-```
+### Heroku
 
-Install the PostgreSQL database (use password *j3llyb4by* if you don't want to edit database.yml):
+If you just want to deploy Jelly directly to the cloud, we recommend Heroku.
 
-```console
-$ sudo -u postgres createuser -DPRS jelly
-Enter password for new role: 
-Enter it again: 
-$ sudo -u postgres createdb -O jelly jelly
-$ rake db:migrate
-```
+TODO
 
-Finally, configure the application to work with your Gmail/Google Apps account. This is done using environment variables. The easiest way to do this is to create a file `config/initializers/00dev.rb` (which is in the `.gitignore` so will not be checked into Git):
+### Docker
 
-```ruby
-# Set up dev environment (will not be checked into git).
-conf = {
-  # Set to your Apps domain if you use Google Apps
-  'GMAIL_DOMAIN' => 'gmail.com',
-  # Must be the full email address you use to log into Gmail or Google Apps
-  'GMAIL_USER' => 'someuser@gmail.com',
-  # Gmail/Google Apps password
-  'GMAIL_PASS' => 'sekrit',
-  # Set this to the hostname for URLs that appear in development emails 
-  'APPHOST' => 'localhost:3000',
-  # Set this to an email address that will receive all email in development mode
-  'DEV_EMAIL' => 'developeremail@isp.com'
-}
-conf.each {|k,v| ENV[k] = v}
-```
-Now the application should be ready to run!
+TODO
 
-```console
-$ rails server
-```
-Once you've registered a user, you'll probably want to make it an admin user. This can be done with a simple rake command:
+## Development environment
 
-```console
-$ rake admin:add[user@example.com]
-user@example.com is now an admin
-```
-
-### Installation to Heroku
-
-[Heroku](http://www.heroku.com/) makes deployment of the app to the cloud ridiculously easy.
-
-Once you have a Heroku account and the Heroku toolchain set up, all you need to do is:
-
-```console
-$ heroku login
-Enter your Heroku credentials.
-Email: user@example.com
-Password (typing will be hidden): 
-Authentication successful.
-$ heroku create
-Creating calm-shore-7081... done, stack is cedar
-http://calm-shore-7081.herokuapp.com/ | git@heroku.com:calm-shore-7081.git
-Git remote heroku added
-$ heroku config:add GMAIL_DOMAIN=gmail.com
-Setting config vars and restarting calm-shore-7081... done, v2
-GMAIL_DOMAIN: gmail.com
-$ # Do the above step for each of the config variables in your 00dev.rb
-$ git push heroku
-$ heroku run rake db:migrate
-```
-
-And that should be it! Your app should be ready to view at the URL Heroku assigned you during the `heroku create` step.
+TODO
 
 ## Roadmap and known issues
 
-The Jelly source code repository is [hosted at Github](https://github.com/pedantic-git/jelly).
+The Jelly source code repository is [hosted at Github](https://github.com/fishpercolator/jelly).
 
-The roadmap is being tracked on the associated [Github issue tracker](https://github.com/pedantic-git/jelly/issues). Please consult that page for details.
+The roadmap is being tracked on the associated [Github issue tracker](https://github.com/fishpercolator/jelly/issues). Please consult that page for details.
 
 ## Copyright & license information
 
