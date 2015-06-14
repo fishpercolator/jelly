@@ -2,7 +2,7 @@
   Meeting for #{@date}
 %section
   %h1 Daily meeting
-  %h2= @date
+  %h2= @date.to_s :display
 - @reports.each do |report|
   %section.report
     %h2.title
