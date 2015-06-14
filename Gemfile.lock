@@ -1,16 +1,16 @@
 GIT
-  remote: git://github.com/fishpercolator/rails-reveal-js.git
-  revision: 669541a3fa22242bc27cc46c586316e680c10094
-  specs:
-    rails-reveal-js (3.1.0)
-      railties (~> 4.0)
-
-GIT
   remote: git://github.com/mjbellantoni/formtastic-bootstrap.git
   revision: 8134e3fd9af1115ee4fa019d6ef994bdc0045099
   specs:
     formtastic-bootstrap (3.1.0)
       formtastic (>= 3.0)
+
+GIT
+  remote: git://github.com/negativetwelve/rails-reveal-js.git
+  revision: 43c21c8709c799050d0305923bd4c715ab648178
+  specs:
+    rails-reveal-js (3.1.0)
+      railties (~> 4.0)
 
 GEM
   remote: https://rubygems.org/
@@ -111,6 +111,9 @@ GEM
       warden (~> 1.2.3)
     devise-bootstrap-views (0.0.5)
     diff-lcs (1.2.5)
+    dotenv (2.0.1)
+    dotenv-rails (2.0.1)
+      dotenv (= 2.0.1)
     erubis (2.7.0)
     execjs (2.5.2)
     factory_girl (4.5.0)
@@ -285,6 +288,7 @@ DEPENDENCIES
   database_cleaner
   devise (~> 3.4.1)
   devise-bootstrap-views (~> 0.0.5)
+  dotenv-rails
   factory_girl_rails
   faker
   formtastic-bootstrap!

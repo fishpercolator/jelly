@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 # Ruby version (needed by Heroku)
 ruby '2.2.1'
 
+gem 'dotenv-rails', groups: [:development, :test]
 gem 'rails', '4.2.1'
 gem 'pg'
 
@@ -36,7 +37,8 @@ gem 'mail', '~> 2.6.3'
 gem 'gravatar_image_tag', '~> 1.2.0'
 #gem 'jquery-ui-sass-rails', '~> 4.0.3.0'
 gem 'bootstrap-datepicker-rails', '~> 1.4.0'
-gem 'rails-reveal-js', github: 'fishpercolator/rails-reveal-js'
+# The upstream repo for this contains my patch to update it to Reveal 3.1.0
+gem 'rails-reveal-js', github: 'negativetwelve/rails-reveal-js'
 gem 'animate.css-rails', '~> 3.2.0'
 gem 'redcarpet', '~> 3.3.1'
 gem 'simple_calendar', '~> 1.1.0'
