@@ -105,11 +105,43 @@ That's it - you're ready to go!
 
 ### Docker
 
-TODO
+Jelly is available for deployment direct from Docker Hub. Please see
+the instructions on
+[its registry page](https://registry.hub.docker.com/u/fishpercolator/jelly/).
 
 ## Development environment
 
-TODO
+Please fork this repo and help to develop it! Pull requests are welcome.
+
+A ready-made development environment is available using
+[Docker Compose](https://docs.docker.com/compose/).
+
+Go to your fork and run the following:
+
+```sh
+# Build the local development environment
+docker-compose build
+docker-compose run web bundle
+# Add environment variables to the .env file as you wish, for example:
+echo SECRET_KEY_BASE=$(docker-compose run web rake secret) >> .env
+echo APPHOST=localhost:3000 >> .env
+# Create the database
+docker-compose run web rake db:create
+docker-compose run web rake db:migrate
+# Bring the application online
+docker-compose up
+```
+
+By default, you should be able to access your development environment
+at <http://localhost:3000/>.
+
+If you add gems, you may not want to rebuild your entire environment
+to load them. Gems are stored in a separate container volume and it
+can be updated with:
+
+```sh
+docker-compose run web bundle
+```
 
 ## Roadmap and known issues
 
