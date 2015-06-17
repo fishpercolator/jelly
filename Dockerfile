@@ -1,6 +1,6 @@
-FROM ruby:2.2.1
+FROM ruby:2.2.2
 MAINTAINER Rich Daley <rich@fishpercolator.co.uk>
-ENV REFRESHED_AT 2015-06-10
+ENV REFRESHED_AT 2015-06-17
 
 RUN apt-get update -qq
 RUN apt-get dist-upgrade -yqq

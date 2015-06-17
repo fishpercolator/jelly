@@ -1,36 +1,36 @@
 source 'https://rubygems.org'
 
 # Ruby version (needed by Heroku)
-ruby '2.2.1'
+ruby '2.2.2'
 
 gem 'dotenv-rails', groups: [:development, :test]
-gem 'rails', '4.2.1'
-gem 'pg'
+gem 'rails', '4.2.2'
+gem 'pg', '~> 0.18.2'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Include Bootstrap styles & JS
-gem 'bootstrap-sass', '~> 3.3.4'
-gem 'bootswatch-rails', '~> 3.2.4'
+gem 'bootstrap-sass', '~> 3.3.5'
+gem 'bootswatch-rails', '~> 3.3.4'
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier', '~> 2.7.1'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
 # Use Haml for views
-gem 'haml-rails', '~> 0.9'
+gem 'haml-rails', '~> 0.9.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
-gem 'therubyracer', platforms: :ruby
+gem 'therubyracer', '~> 0.12.2', platforms: :ruby
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
-gem 'turbolinks'
+gem 'jquery-rails', '~> 3.1.3'
+gem 'turbolinks', '~> 2.5.3'
 
 # Use Puma as the application server
-gem 'puma', '~> 2.11'
+gem 'puma', '~> 2.11.3'
 
 # Stuff for my app
-gem 'devise', '~> 3.4.1'
+gem 'devise', '~> 3.5.1'
 gem 'devise-bootstrap-views', '~> 0.0.5'
-gem 'cancancan', '~> 1.10.1'
+gem 'cancancan', '~> 1.11.0'
 gem 'rolify', '~> 4.0.0'
 gem 'formtastic-bootstrap', github: 'mjbellantoni/formtastic-bootstrap'
 gem 'mail', '~> 2.6.3'
@@ -53,7 +53,7 @@ group :development, :test do
   gem 'byebug'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
+  gem 'web-console', '~> 2.1.3'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
