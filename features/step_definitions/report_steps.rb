@@ -40,6 +40,10 @@ Then /^I should see the text "(.*)"$/ do |text|
   expect(page).to have_text(text)
 end
 
+Then /^I should see the html "(.*)"$/ do |html|
+  expect(page.body).to include(html)
+end
+
 Then /^I should see jelly baby (\d+)$/ do |id|
   expect(find_by_id('jelly-image')['src']).
     to match(%r{/assets/jelly_babies/#{id}.*\.png})

@@ -31,12 +31,14 @@ Feature: Report management
     When I visit my most recent report
     And I click the button "Edit"
     And I fill in these details:
-      | field          | value     |
-      | report_excited | New value |
+      | field              | value                         |
+      | report_excited     | New value                     |
+      | report_help_needed | On two lines\nWith *markdown* |
     And I select jelly baby 10
     And I click the button "Update Report"
     Then I should be on the show report page
     And I should see the text "I am most excited about: New value"
+    And I should see the html "<p>On two lines<br>With <em>markdown</em></p>"
     And I should see jelly baby 10
     And I should see 3 achievements and 3 tasks
 
