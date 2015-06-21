@@ -1,0 +1,8 @@
+.git
+.gitignore
+log
+tmp
+.env
+.vagrant
+db/*.sqlite3*
+**~

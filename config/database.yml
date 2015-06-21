@@ -2,13 +2,13 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: 5
+  username: <%= ENV['DB_ENV_POSTGRES_USER'] || 'postgres' %>
+  password: <%= ENV['DB_ENV_POSTGRES_PASSWORD'] %>
+  host: db
 
 development:
   <<: *default
   database: jelly_development
-  username: postgres
-  password:
-  host: db
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -16,12 +16,10 @@ development:
 test: &test
   <<: *default
   database: jelly_test
-  username: postgres
-  password:
-  host: db
 
-# Configured automatically by Heroku
-# production:
+production:
+  <<: *default
+  database: jelly_production
 
 cucumber:
   <<: *test

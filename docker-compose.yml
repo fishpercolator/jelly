@@ -4,7 +4,8 @@ db:
     - "5432"
 web:
   build: .
-  command: bundle exec puma -C config/puma.rb
+  environment:
+    RAILS_ENV: development
   volumes:
     - .:/usr/src/jelly
   volumes_from:

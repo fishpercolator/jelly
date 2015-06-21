@@ -2,12 +2,18 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
+<%
+jelly_paths = (0..23).inject({}) {|h, n| h[n] = image_path("jelly_babies/#{n}.png"); h }
+%>
+jelly_path = (n) ->
+  <%= jelly_paths.to_json %>[n]
+
 report_ready = ->
   for n in [1..23]
     do (n) ->
       $("#jelly-#{n}").click -> 
-        $('#jelly-image').attr 'src', "/assets/jelly_babies/#{n}.png"
-        $('.mapster_el').attr 'src', "/assets/jelly_babies/#{n}.png"
+        $('#jelly-image').attr 'src', jelly_path(n)
+        $('.mapster_el').attr 'src', jelly_path(n)
         $('#report_jelly').val(n)
   $('#report_jelly').change ->
     n = $(this).val()
