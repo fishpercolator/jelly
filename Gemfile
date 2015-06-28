@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 ruby '2.2.2'
 
 gem 'dotenv-rails', groups: [:development, :test]
-gem 'rails', '4.2.2'
+gem 'rails', '4.2.3'
 gem 'pg', '~> 0.18.2'
 
 # Use SCSS for stylesheets
