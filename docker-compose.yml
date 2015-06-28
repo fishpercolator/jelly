@@ -4,8 +4,10 @@ db:
     - "5432"
 web:
   build: .
-  environment:
-    RAILS_ENV: development
+  entrypoint:
+    - env
+    - --unset=RAILS_ENV
+  command: bundle exec puma -C config/puma.rb
   volumes:
     - .:/usr/src/jelly
   volumes_from:

@@ -1,24 +1,22 @@
-require 'jelly_dates'
-
 class Report < ActiveRecord::Base
-	
+
   belongs_to :user
-  
+
   has_many :achievements, -> { order 'achievements.id' }
   accepts_nested_attributes_for :achievements, limit: 3, allow_destroy: true
 
   has_many :tasks, -> { order 'tasks.id' }
   accepts_nested_attributes_for :tasks, limit: 3, allow_destroy: true
-  
+
   validates_presence_of :user, :excited, :jelly, :today, :previous_day
   validates_uniqueness_of :today, :scope => [:user_id]
-  
+
   # Support roles
   resourcify
 
   extend SimpleCalendar
   has_calendar attribute: :today
-  
+
   # Set dates on object creation
   after_initialize do
   	if new_record?
@@ -32,7 +30,7 @@ class Report < ActiveRecord::Base
   		end
   	end
   end
-  
+
   # Ensure the nested attributes are included in hash representations
   def as_json(options={})
   	j = super(options)
@@ -40,7 +38,7 @@ class Report < ActiveRecord::Base
   	j[:tasks] = self.tasks
   	j
   end
-  
+
   # Find the next and previous reports in the current meeting
   def next_prev
     reports = Report.where(:today => today).order(:created_at).to_a
@@ -54,8 +52,8 @@ class Report < ActiveRecord::Base
   # The report for the previous working day for this user, if there is
   # one (nil otherwise)
   def previous_day_report
-    Report.where(:today => JellyDates.previous_working_day(today),
+    Report.where(:today => today.go_back_by_weekdays(1),
                  :user_id => user).first
   end
-    		
+
 end

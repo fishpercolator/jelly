@@ -42,6 +42,7 @@ gem 'rails-reveal-js', github: 'negativetwelve/rails-reveal-js'
 gem 'animate.css-rails', '~> 3.2.0'
 gem 'redcarpet', '~> 3.3.1'
 gem 'simple_calendar', '~> 1.1.0'
+gem 'weekend_warrior', '~> 1.0.0'
 
 # Gem used by Heroku to avoid plugin injection
 group :production do
