@@ -6,7 +6,8 @@ img.gravatar {
 }
 
 nav img.gravatar {
-  margin-right: 0.5em;
+  margin-right: 0.1em;
+  padding-bottom: 1px;
 }
 
 span.username {
@@ -33,12 +34,20 @@ footer, .push {
   padding: 1em;
 }
 
-a.navbar-brand {
+.navbar-brand {
   font: {
     family: 'Chewy', cursive;
     size: 1.8em;
   }
-  margin-left: 0 !important;
+  margin: {
+    left: 0;
+  }
+  padding: {
+    top: 13.5px;
+    bottom: 13.5px;
+    left: 1em;
+    right: 15px;
+  }
 }
 
 .signin-form {
@@ -52,4 +61,3 @@ a.navbar-brand {
     }
   }
 }
-
