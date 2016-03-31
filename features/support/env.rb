@@ -6,7 +6,7 @@
 
 require 'cucumber/rails'
 require 'capybara-screenshot/cucumber'
-require 'capybara/poltergeist'
+require 'headless'
 
 # Capybara defaults to CSS3 selectors rather than XPath.
 # If you'd prefer to use XPath, just uncomment this line and adjust any
@@ -61,5 +61,11 @@ Cucumber::Rails::Database.javascript_strategy = :truncation
 # Enable FactoryGirl syntax in Cucumber
 World(FactoryGirl::Syntax::Methods)
 
-# Use Poltergeist for Capybara JS
-Capybara.javascript_driver = :poltergeist
+# Use Capybara-webkit for Capybara JS
+Capybara.javascript_driver = :webkit
+Headless.new.start # make sure there's an X server for the browser to run in
+
+# Block all external requests that are not on the whitelist
+Capybara::Webkit.configure do |config|
+  config.block_unknown_urls
+end
