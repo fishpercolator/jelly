@@ -13,7 +13,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.3'
 gem 'bootswatch-rails', '~> 3.3'
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '~> 2.7'
+gem 'uglifier', '~> 3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1'
 # Use Haml for views
@@ -21,18 +21,18 @@ gem 'haml-rails', '~> 0.9'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 gem 'therubyracer', '~> 0.12', platforms: :ruby
 # Use jquery as the JavaScript library
-gem 'jquery-rails', '~> 3.1'
+gem 'jquery-rails', '~> 4.1'
 gem 'turbolinks', '~> 2.5'
 
 # Use Puma as the application server
-gem 'puma', '~> 2.11'
+gem 'puma', '~> 3.2'
 
 # Stuff for my app
 gem 'devise', '~> 3.5'
 gem 'devise-bootstrap-views', '~> 0.0'
 gem 'cancancan', '~> 1.11'
-gem 'rolify', '~> 4.0'
-gem 'formtastic-bootstrap', github: 'mjbellantoni/formtastic-bootstrap'
+gem 'rolify', '~> 5.1'
+gem 'formtastic-bootstrap', '~> 3.1'
 gem 'mail', '~> 2.6'
 gem 'gravatar_image_tag', '~> 1.2'
 gem 'bootstrap-datepicker-rails', '~> 1.4'
@@ -51,12 +51,13 @@ end
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.1.3'
-
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+end
+
+group :development do
+  # Access an IRB console on exception pages or by using <%= console %> in views
+  gem 'web-console', '~> 3.1'
 end
 
 group :test do
