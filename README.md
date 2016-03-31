@@ -152,4 +152,4 @@ The roadmap is being tracked on the associated [Github issue tracker](https://gi
 
 ## Copyright & license information
 
-See LICENSE.
+MIT licensed. See LICENSE.
