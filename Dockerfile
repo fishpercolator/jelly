@@ -1,6 +1,6 @@
 FROM ruby:2.3
 MAINTAINER Rich Daley <rich@fishpercolator.co.uk>
-ENV REFRESHED_AT 2016-03-31
+ENV REFRESHED_AT 2016-05-09
 
 # This line is needed for JavaScript testing with headless+capybara-webkit
 RUN apt-get update -y && apt-get install less xvfb qt5-default libqt5webkit5-dev -y && apt-get clean

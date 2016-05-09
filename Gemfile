@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Ruby version (needed by Heroku)
-ruby '2.3.0'
+ruby '2.3.1'
 
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'rails', '~> 4.2'
@@ -36,8 +36,7 @@ gem 'formtastic-bootstrap', '~> 3.1'
 gem 'mail', '~> 2.6'
 gem 'gravatar_image_tag', '~> 1.2'
 gem 'bootstrap-datepicker-rails', '~> 1.4'
-# The upstream repo for this contains my patch to update it to Reveal 3.1.0
-gem 'rails-reveal-js', github: 'negativetwelve/rails-reveal-js'
+gem 'rails-reveal-js', '~> 3.3', require: 'reveal'
 gem 'animate.css-rails', '~> 3.2'
 gem 'redcarpet', '~> 3.3'
 gem 'simple_calendar', '~> 1.1'
