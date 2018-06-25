@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Ruby version (needed by Heroku)
-ruby '2.3.1'
+ruby '2.3.4'
 
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'rails', '~> 4.2'
