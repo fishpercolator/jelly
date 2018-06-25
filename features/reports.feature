@@ -21,8 +21,8 @@ Feature: Report management
       | report_tasks_attributes_2_text        | Will test even more   |
     And I click the button "Create Report"
     Then I should be on the show report page
-    And I should see the text "I am most excited about: Being a test"
-    And I should see the text "Yesterday I achieved: Tested something Tested something else Tested something more"
+    And I should see the text "I am most excited about:\nBeing a test"
+    And I should see the text "Yesterday I achieved:\nTested something Tested something else Tested something more"
     And I should see jelly baby 5
 
   Scenario: Can edit report
@@ -37,7 +37,7 @@ Feature: Report management
     And I select jelly baby 10
     And I click the button "Update Report"
     Then I should be on the show report page
-    And I should see the text "I am most excited about: New value"
+    And I should see the text "I am most excited about:\nNew value"
     And I should see the html "<p>On two lines<br>With <em>markdown</em></p>"
     And I should see jelly baby 10
     And I should see 3 achievements and 3 tasks
@@ -83,7 +83,7 @@ Feature: Report management
     And I have 15 reports this month
     When I visit my reports page
     Then I should see 15 links on a calendar
- 
+
   Scenario: Reports by day
     Given I am signed in
     And there are 6 reports today and 8 reports yesterday

@@ -37,7 +37,7 @@ Then /^I should be on the show report page$/ do
 end
 
 Then /^I should see the text "(.*)"$/ do |text|
-  expect(page).to have_text(text)
+  expect(page).to have_text(text.gsub "\\n", "\n")
 end
 
 Then /^I should see the html "(.*)"$/ do |html|
@@ -124,5 +124,5 @@ When /^I visit the all reports page$/ do
 end
 
 Then /^I should see (today|yesterday)'s date marked with (\d+)$/ do |date_method, number|
-  expect(page).to have_text("#{Date.send(date_method).strftime('%d')} #{number} report")
+  expect(page).to have_text("#{Date.send(date_method).strftime('%d')}\n#{number} report")
 end
