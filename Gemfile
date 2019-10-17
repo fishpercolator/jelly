@@ -10,7 +10,7 @@ gem 'pg', '~> 0.18'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Include Bootstrap styles & JS
-gem 'bootstrap-sass', '~> 3.3'
+gem 'bootstrap-sass', '~> 3.4'
 gem 'bootswatch-rails', '~> 3.3'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '~> 3.0'
