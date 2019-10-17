@@ -28,7 +28,7 @@ gem 'turbolinks', '~> 2.5'
 gem 'puma', '~> 3.2'
 
 # Stuff for my app
-gem 'devise', '~> 3.5'
+gem 'devise', '~> 4.7'
 gem 'devise-bootstrap-views', '~> 0.0'
 gem 'cancancan', '~> 1.11'
 gem 'rolify', '~> 5.1'
