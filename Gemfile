@@ -25,7 +25,7 @@ gem 'jquery-rails', '~> 4.1'
 gem 'turbolinks', '~> 2.5'
 
 # Use Puma as the application server
-gem 'puma', '~> 3.2'
+gem 'puma', '~> 3.12'
 
 # Stuff for my app
 gem 'devise', '~> 3.5'
