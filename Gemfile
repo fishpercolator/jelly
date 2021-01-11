@@ -38,7 +38,7 @@ gem 'gravatar_image_tag', '~> 1.2'
 gem 'bootstrap-datepicker-rails', '~> 1.4'
 gem 'rails-reveal-js', '~> 3.3', require: 'reveal'
 gem 'animate.css-rails', '~> 3.2'
-gem 'redcarpet', '~> 3.3'
+gem 'redcarpet', '~> 3.5'
 gem 'simple_calendar', '~> 1.1'
 gem 'weekend_warrior', '~> 1.0'
 
